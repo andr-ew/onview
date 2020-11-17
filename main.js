@@ -31,28 +31,28 @@ request.onerror = function(xhr, status, error) {
 }
 request.onload = function() {
     app.data = request.response;
-    
+
     console.log(request);
-    
+
     app.loading = {
         size: 0,
         progress: 0,
         update: function(prog) {
             this.progress += prog;
-            
+
             console.log("LOADING: " + this.progress + " / " + this.size);
-            
+
             $("#startButton").html("LOADING: " + Math.round(this.progress / this.size * 100) + "%");
-            
+
             if(this.size > 100 && this.progress == this.size) {
                 var overlay = document.getElementById( 'overlay' );
                 overlay.remove();
-                
+
                 css.youtubeBump();
             }
         }
     }
-    
+
     $("#startButton").removeClass("hidden");
 
     if(true) {
@@ -85,24 +85,24 @@ app.init = function() {
     app.renderer = new app.THREE.WebGLRenderer({ antialias: true, powerPreference: "low-power", alpha: true });
     app.renderer.setClearColor( 0xffffff, 0);
 //    app.renderer.setClearAlpha(0.1);
-    
+
     app.scene.background = null;
-    
-    
+
+
     app.renderer.setSize( window.innerWidth, window.innerHeight );
     window.renderer = app.renderer
-    
+
     app.nav = nav;
     app.nav.homescreen = new Homescreen(app);
     app.nav.location = app.nav.homescreen;
 
     app.controls = controls;
 
-    
-    
+
+
     controls.init(app);
     css.init(app);
-    
+
     app.container.appendChild( app.renderer.domElement );
 
 }
@@ -118,4 +118,3 @@ function animate() {
 
     TWEEN.update();
 }
-    

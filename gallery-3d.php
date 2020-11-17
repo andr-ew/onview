@@ -9,12 +9,10 @@ TODO:
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>(Re)Visions of Chicago Public Schools</title> <!-- add keywords Keyword 1 - Keyword 2 | Branding Name   -->
-<!--        <link rel="shortcut icon" type="image/png" href="./img/favicon.png"/>-->
-        <link href="./img/favicon.png" rel="shortcut icon" type="image/x-icon">
-        <meta name="description" content="CPS Lives and 062 are happy to present (Re)Visions of Chicago Public Schools, our first virtual group show of works by 20 CPS Lives artists.">
-        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Libre+Baskerville&family=Source+Code+Pro:wght@300&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
-		<link href="./style.css" rel="stylesheet">
+        <title><?php echo get_bloginfo( 'name' ); ?></title>
+        <meta content="<?php echo get_bloginfo( 'name' ); ?>" property="og:title">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <?php wp_head(); ?>
 	</head>
 	<body>
         <div id="container"></div>
@@ -27,7 +25,7 @@ TODO:
                 <h1 class="title" id="title">(Re)Visions of Chicago Public Schools</h1>
             </div>
             <div>
-                <img class="logos" src="img/combo.svg">
+                <img class="logos" src="<?php echo get_template_directory_uri(); ?>/img/combo.svg">
             </div>
             <div>
                  <p class="button artist" id="artist-info">about</p>
@@ -36,9 +34,9 @@ TODO:
         <div class="overlay" id="overlay">
 			<div>
                 <h1>(Re)Visions of Chicago Public Schools</h1>
-                <img class="logos" src="img/combo.svg">
+                <img class="logos" src="<?php echo get_template_directory_uri(); ?>/img/combo.svg">
                 <br>
-                <img id="gif" src="./img/acs_web_transparent.gif">
+                <img id="gif" src="<?php echo get_template_directory_uri(); ?>//img/acs_web_transparent.gif">
                 <p id="instructions">Move your phone and tap the screen to explore the gallery</p>
 				<button class="hidden" id="startButton">ENTER GALLERY</button>
 			</div>
@@ -84,9 +82,9 @@ TODO:
 <!--
                 <h2>Upcoming Events</h2>
 
-                <img src="./img/Discussion%20Poster%20Final-03%20(1).jpg">
-                <img src="./img/4COVER%20(5).jpg">
-                <img src="./img/17YWLCS__FLYERIMAGE%20(5).jpg">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/Discussion%20Poster%20Final-03%20(1).jpg">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/4COVER%20(5).jpg">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/17YWLCS__FLYERIMAGE%20(5).jpg">
 -->
 
                 <h2>Past Events</h2>
@@ -135,7 +133,7 @@ TODO:
 
                 <p>Marzena Abrahamik received her BA from Loyola University in 2002 and her MFA from Yale University in 2013. Her recent solo exhibitions include presentations at Johalla Projects, Chicago (2017, 2015), the Gallery of Classic Photography, Moscow (2013), and the Turchin Center for the Visual Arts, Boone, North Carolina (2012). Group exhibition highlights include the Silver Eye Center for Photography, Pittsburgh (2016), Weinberg/Newton Gallery, Chicago (2016), Soccer Club Club, Chicago (2016), Sushi Bar, New York (2014), the International Photography Festival, Tel-Aviv (2014), and Aperture, New York (2013). Her work is included in the collections of the Art Institute of Chicago and Haas Family Art Library at Yale University. Her work can currently be seen in the Whitney Houston Biennial in New York</p>
 
-                <img class="headshot" src="./headshots/MarzenaAbrahamik_Headshot.jpg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>//headshots/MarzenaAbrahamik_Headshot.jpg">
 
                 <h2>Project Description</h2>
 
@@ -152,7 +150,7 @@ TODO:
 
                 <p>Justin Schmitz is a Chicago based Photographer. He is the recipient of the Toby Devan Lewis Fellowship, The Tierney Fellowship,City of Chicago CAAP Grant, Albert P. Weisman Scholarship, and The Union League Civic and Arts Foundation Scholarship. A collection of his work was part of the Midwest Photographers Project at the Museum of Contemporary Photography.  He was runner-up for the Photography Book Now Prize, and a finalist for the Honickman First Book Prize</p>
 
-                <img class="headshot" src="./headshots/JSchmitz.jpg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>//headshots/JSchmitz.jpg">
 
                 <h2>Project Description</h2>
 
@@ -183,14 +181,14 @@ TODO:
 
                 <p>Kioto Aoki is a visual artist whose practice includes photography, film, books and installations to engage the material specificity of the analogue image and image-making process. Using the nuances of time, space, form, light and motion, her work explores different modes of perception as it relates to the space between the still and the moving image. Her work also explores the photographic and cinematic interpretations of the body in space and includes a series of dance-movement films. She has exhibited and screened in Chicago, Berlin, Los Angeles, San Francisco, London and Japan. Her work is held in Joan Flasch Artists’ Book Collection and the Museum of Contemporary Art Chicago Library. Kioto received her MFA from The School of the Art Institute of Chicago and is currently an artist in residence for HATCH Projects at the Chicago Artists Coalition.</p>
 
-                <img class="headshot" src="./headshots/Aoki_Headshot.jpeg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/Aoki_Headshot.jpeg">
 
                 <h1 class="bigtitle">Jan Tichy</h1>
 
 
                 <p>Jan Tichy is a contemporary artist and educator and works at the intersection of video, sculpture, architecture, and photography. Born in Prague in 1974, Tichy studied art in Israel before earning his MFA from the School of the Art Institute of Chicago, where he is now Associate Professor at the Department of Photography and the Department of Art &amp; Technology Studies. Tichy has had solo exhibitions at the MCA Chicago; Tel Aviv Museum of Art; CCA Tel Aviv; Wadsworth Atheneum Museum of Art; Museum of Contemporary Photography, Chicago; Santa Barbara Museum of Art and Chicago Cultural Center among others. In 2011, he created Project Cabrini Green, a community based art project that illuminated with spoken word the last high rise building of the Cabrini Green housing projects. In 2014 Tichy started to work on an NEA supported, community project in Gary, IN – the Heat Light Water cultural platform. Beyond Streaming: a sound mural for Flint at the Broad Museum in Michigan in 2017 brought teens from Flint and Lansing to share their experience of the ongoing water crisis. In 2018 Tichy was one of the inaugural artists for Art on the Mart.</p>
 
-                <img class="headshot" src="./headshots/Jan%20Tichy.png">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/Jan%20Tichy.png">
 
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/5z1qIi9I4vU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -201,7 +199,7 @@ TODO:
 <!--                <section>-->
                     <h1 class="bigtitle">Suzette Bross</h1>
 
-                <img class="headshot" src="./headshots/Suzette%20Bross.jpeg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/Suzette%20Bross.jpeg">
 
 
 
@@ -223,13 +221,13 @@ TODO:
 
                 <p>Kelly Costello splits her time between running her own design firm, Panorama Innovation, and teaching at several universities, including Northwestern University, Institute of Design (IIT), and the executive education program at CEDIM design school in Mexico. Her company frequently hires CAP-X students from the School of the Art Institute to help with various design projects, including the final phase of this project for CPS Lives. Kelly now focuses much of her work on civic innovation and design coaching for Bloomberg Philanthropies. She holds a Master of Design from IIT’s Institute of Design and a Designing Your Life coaching certificate, a program which uses design thinking to re-imagine one’s future.</p>
 
-                <img class="headshot" src="./headshots/KellyCostello_Headshot.jpg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/KellyCostello_Headshot.jpg">
 
                 <h1 class="bigtitle">Karishma Kaplesh Dotia</h1>
 
                 <p>Karishma Kaplesh Dotia is a budding designer with an entrepreneurial mindset, who leverages problem-solving skills, user-centric approach, and research into creating socially conscious designs. As a Bachelor of Fine Arts student at the School of the Art Institute of Chicago (SAIC), she has presented her works at international summits, most notably the Bio design Challenge 2018 at the Museum of Modern Art. She has also collaborated with government bodies to work on design solutions concerning public health and environmental problems. New challenges inspire her.</p>
 
-                <img class="headshot" src="./headshots/Karishma%20Dotia_Headshot.jpg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/Karishma%20Dotia_Headshot.jpg">
 
 
 
@@ -246,7 +244,7 @@ TODO:
 
                 <p>Scott Fortino developed his approach to photography out of experiences directly related to his position as a Chicago police officer. This work led to the publication of his monograph, Institutional, which depicted seemingly impersonal architectural spaces while revealing the embedded evidence of personal use. He received his MFA from the University of Illinois at Chicago and a BA from Columbia College Chicago. He has had solo exhibitions in Chicago at the Museum of Contemporary Art and the Museum of Contemporary Photography. His work is in the collections of the Art Institute of Chicago, Milwaukee Art Museum, Worcester Art Museum and the Museum of Contemporary Photography, and numerous public and private collections. He lives and works in Chicago.</p>
 
-                <img class="headshot" src="./headshots/ScottFortino2.jpg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/ScottFortino2.jpg">
 
                 <a href="./artist-pdfs/Scott%20Fortino%20List.pdf"target="_blank" class="low">List of Works</a>
 
@@ -256,7 +254,7 @@ TODO:
 
                 <p>Jim Iska has been photographing the urban scene for over thirty years. After graduating from the Institute of Design in Chicago in 1980, Iska’s work has revolved around architecture from the classic to the vernacular, and its integral role in defining the city. He collaborated with author and historian Francis Morrone on a series of architectural guidebooks of New York City, Philadelphia, and Brooklyn in the 1990s.  Iska also produced contemporary photography for the first and second editions ofThe City in a Garden: A History of Chicago’s Parks by Julia S. Bachrach.  He is currently the author of the blog “In and About the City.”</p>
 
-                <img class="headshot" src="./headshots/James%20Iska.jpg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/James%20Iska.jpg">
 
                 <h2>Project Description</h2>
 
@@ -286,7 +284,7 @@ TODO:
 
                 <p>I was born in Princeton, NJ, but raised in a suburb of Minneapolis. I grew up sailing in the summer and cross country skiing in the winter, in the spring and fall my dad and I would go out and take pictures. I have a masters degree from the University of Wisconsin Madison, but I still can’t spell to save my life. I live in a quaint burg just outside the city limits of Chicago. I’ve worked for companies as large as International Paper and as small as some local free newspaper you find in a coffee shop. I can handle any job you can throw at me – as long as I don’t have to spell much. And I love anything that gets me traveling.</p>
 
-                <img class="headshot" src="./headshots/Doug.jpg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/Doug.jpg">
 
                 <h2>Project Description</h2>
 
@@ -301,7 +299,7 @@ TODO:
 
                 <p>Janet Mesic Mackie has been a professional photographer for over 30 years, and has honed a vision and body of work that is informed by her love of nature, of form, and her training as a visual artist. “In recent years, my work has moved in a direction that emphasizes the beauty of form found all around us. From landscapes to portraits and images of horses, I look to capture the essence and vitality in the natural world.” As an editorial photographer, Mesic Mackie’s work has appeared in Elle Décor, Veranda, Interiors Magazine, and House Beautiful, among others. She has also been included in numerous interior design books. Janet Mesic-Mackie has a Bachelor’s degree in Printmaking and Photography from the University of Oregon. She lives and works in Chicago, Illinois.</p>
 
-                <img class="headshot" src="./headshots/Janet%20Mesic%20Mackie.jpeg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/Janet%20Mesic%20Mackie.jpeg">
 
                 <h2>Project Description</h2>
 
@@ -317,7 +315,7 @@ TODO:
 
                 <p>Lynn Renee Persin received her BA in English from the University of Michigan where she studied creative writing and begged her way into photography classes in the art school. She started her career working as a photographer’s assistant and studio manager for Chicago based photographers. Using the skill set she gained managing studios she became a photography shoot producer and spent a decade producing commercial photography shoots for clients like Coca Cola, Discover Card, Nike, Champion, and Miller Lite. In the meantime she’s continued to pursue her photography career breaking off on her own in 2016. Her work has been featured on billboards and busses for local JCC Apachi Day Camps, and she has exhibited in The Artist Project at the Merchandise Mart and multiple Around the Coyote Festivals where she received curator’s choice by Tricia Van Eyck of the Museum of Contemporary Art. </p>
 
-                <img class="headshot" src="./headshots/20190813-_DSC0204.jpg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/20190813-_DSC0204.jpg">
 
                 <h2>Project Description</h2>
 
@@ -335,7 +333,7 @@ TODO:
 
                 <p>Jeff Phillips is a Chicago-based photographic artist who has been passionate about photography for more than 35 years. He serves as a member of the board of directors of Filter Photo, and for the past nine years has helped produce the annual Filter Photo Festival. His photographs have been exhibited and published internationally through a variety of media channels including books, newspapers, and magazines. Phillips has presented and lectured about his work at South by Southwest (SXSW), Society for Photographic Education (SPE), ASMP Midwest, and other venues including Pecha Kucha in Chicago and at Contemporary Art Museum in St. Louis. Phillips is the creator of Lost and Found: The Search for Harry and Edna (harryandedna.com), a vernacular photography and social media experiment that became a traveling exhibition and subsequently received international media attention for its content and production.</p>
 
-                <img class="headshot" src="./headshots/Jeff%20Phillips%20-%20Headshot.jpg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/Jeff%20Phillips%20-%20Headshot.jpg">
 
                 <h2>Project Description</h2>
 
@@ -347,7 +345,7 @@ TODO:
 
 <!--
                 <video width="642" height="440" controls>
-                    <source src="./img/COVER.mp4" type="video/mp4">
+                    <source src="<?php echo get_template_directory_uri(); ?>/img/COVER.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
 -->
@@ -357,7 +355,7 @@ TODO:
 
                 <p>John Preus (rhymes with choice – b. 1971) spent his early years running barefoot under a cathedral of trees in Makumira, Tanzania, then grew up in Minneapolis, Minnesota, and northern Wisconsin.  Preus, currently works as an artist, builder, fabricator, amateur writer, musician, and collaborator.  After receiving his bachelors in art, Preus studied hand-tool furniture-making with master, John Nesset. Preus co-founded SHoP, a community art space in Hyde Park Chicago with Laura Shaeffer (2011), and Material Exchange with Sara Black (2005). and collaborated with Theaster Gates on the Dorchester Projects, and was project lead for 12 Ballads for Huguenot House, at Documenta 13, the culmination of a 6 year collaboration with Gates. Preus was recently a Kaplan resident at Northwestern University, a 2016 nominee for the US Artist Fellowship, and was included in New City’s Chicago Art 50 in 2016. </p>
 
-                <img class="headshot" src="./headshots/John%20Preus%2012.01.52%20PM.jpg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/John%20Preus%2012.01.52%20PM.jpg">
 
                 <h2>Project Description</h2>
 
@@ -370,7 +368,7 @@ TODO:
             <article class="main" id="info-EileenRyan">
                 <h1 class="bigtitle">Eileen Ryan</h1>
 
-                <img class="headshot" src="./headshots/Eileen%20Ryan.jpeg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/Eileen%20Ryan.jpeg">
 
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/fufViXB4R74" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -391,7 +389,7 @@ TODO:
 
                 <p>Matt Siber (b.1972) is a Chicago-based visual artist working in photography, digital imaging, video, installation and sculpture. With an MFA in Photography from Columbia College Chicago, he has had solo exhibitions in Madrid, Berlin and Chicago among other venues. His first monograph, Idol Structures, was published by the DePaul Art Museum, Chicago in 2015. His artwork is part of many private and public permanent collections including The Art Institute of Chicago, The Museum of Contemporary Photography, and The Bidwell Foundation. His work has been published internationally in publications including ArtForum, Sculpture Magazine, Flash Art, Aperture and EXIT Magazine. He has received grants from the David C. and Sarajean Ruttenberg Arts Foundation, the Aaron Siskind Foundation and the Illinois Arts Council. Siber is Assistant Adjunct Professor in the Photography Department of The School of The Art Institute of Chicago.</p>
 
-                <img class="headshot" src="./headshots/Matt%20Siber.JPG">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/Matt%20Siber.JPG">
 
                 <h2>Project Description</h2>
 
@@ -406,7 +404,7 @@ TODO:
 
                 <p>Edra Soto (b. Puerto Rico) is an interdisciplinary artist, educator, curator, and co-director of the outdoor project space THE FRANKLIN. She is invested in creating and providing visual and educational models propelled by empathy and generosity. Her recent projects, which are motivated by civic and social actions, focus on fostering relationships with a wide range of communities. Soto holds an MFA from The School of the Art Institute of Chicago, and a bachelor’s degree from Escuela de Artes Plastics de Puerto Rico. She teaches Introduction to Social Engagement at University of Illinois in Chicago and is a Lecturer at the School of the Art Institute of Chicago.</p>
 
-                <img class="headshot" src="./headshots/Edra%20Soto.jpg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/Edra%20Soto.jpg">
 
                 <h2>Project Description</h2>
 
@@ -423,7 +421,7 @@ TODO:
 
                 <p>Krista Wortendyke (b. 1979, Nyack, New York) is a Chicago-based conceptual artist. She received her MFA in Photography from Columbia College in 2007. Her ongoing work examines violence through the lens of photography. Her images are a result of a constant grappling with the mediation of war and brutality both locally and globally. Her work has been exhibited at the Museum of Contemporary Photography, Schneider Gallery and Weinberg/Newton Gallery in Chicago, The Griffin Museum in Boston, and many other venues across the United States. Additionally, Krista’s work is part of the permanent collection at the Museum of Fine Arts Houston and the Museum of Contemporary Photography. Krista is currently the coordinator for Senn High School’s Fine &amp; Performing Arts Magnet Program, Senn Arts.</p>
 
-                <img class="headshot" src="./headshots/Krista.jpg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/Krista.jpg">
 
                 <h2>Project Description</h2>
 
@@ -436,13 +434,13 @@ TODO:
 
                 <p>Marzena Abrahamik received her BA from Loyola University in 2002 and her MFA from Yale University in 2013. Her recent solo exhibitions include presentations at Johalla Projects, Chicago (2017, 2015), the Gallery of Classic Photography, Moscow (2013), and the Turchin Center for the Visual Arts, Boone, North Carolina (2012). Group exhibition highlights include the Silver Eye Center for Photography, Pittsburgh (2016), Weinberg/Newton Gallery, Chicago (2016), Soccer Club Club, Chicago (2016), Sushi Bar, New York (2014), the International Photography Festival, Tel-Aviv (2014), and Aperture, New York (2013). Her work is included in the collections of the Art Institute of Chicago and Haas Family Art Library at Yale University. Her work can currently be seen in the Whitney Houston Biennial in New York</p>
 
-                <img class="headshot" src="./headshots/MarzenaAbrahamik_Headshot.jpg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/MarzenaAbrahamik_Headshot.jpg">
 
                 <h1 class="bigtitle">Justin Schmitz</h1>
 
                 <p>Justin Schmitz is a Chicago based Photographer. He is the recipient of the Toby Devan Lewis Fellowship, The Tierney Fellowship,City of Chicago CAAP Grant, Albert P. Weisman Scholarship, and The Union League Civic and Arts Foundation Scholarship. A collection of his work was part of the Midwest Photographers Project at the Museum of Contemporary Photography.  He was runner-up for the Photography Book Now Prize, and a finalist for the Honickman First Book Prize</p>
 
-                <img class="headshot" src="./headshots/JSchmitz.jpg">
+                <img class="headshot" src="<?php echo get_template_directory_uri(); ?>/headshots/JSchmitz.jpg">
 
                 <h2>Project Description</h2>
 
@@ -455,13 +453,14 @@ TODO:
                 <p>site by acs <a href="http://andrewcs.info/" target="_blank">andrewcs.info</a></p>
             </footer>
         </section>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="./tween.umd.js"></script>
-        <script type="module" src="./main.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+        <!-- <script src="<?php echo get_template_directory_uri(); ?>/tween.umd.js"></script> -->
+        <!-- <script type="module" src="<?php echo get_template_directory_uri(); ?>/main.js"></script> -->
 <!--
 		<script type="module">
 
         </script>
 -->
+        <?php get_footer(); ?>
 	</body>
 </html>
