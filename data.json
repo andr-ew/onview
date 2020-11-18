@@ -2,7 +2,7 @@
     "artists": [
         {
             "name": "Matt Siber",
-            "dir": "./work/MattSiber/",
+            "dir": "work/MattSiber/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",
@@ -83,7 +83,7 @@
         },
         {
             "name": "Edra Soto",
-            "dir": "./work/EdraSoto/",
+            "dir": "work/EdraSoto/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",
@@ -134,7 +134,7 @@
         },
         {
             "name": "Jim Iska",
-            "dir": "./work/JimIska/",
+            "dir": "work/JimIska/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",
@@ -210,7 +210,7 @@
         },
         {
             "name": "Scott Fortino",
-            "dir": "./work/ScottFortino/",
+            "dir": "work/ScottFortino/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",
@@ -281,7 +281,7 @@
         },
         {
             "name": "Suzette\nBross",
-            "dir": "./work/SuzetteBross/",
+            "dir": "work/SuzetteBross/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",
@@ -362,7 +362,7 @@
         },
         {
             "name": "Kioto Aoki\n& Jan Tichy",
-            "dir": "./work/KiotoAokiJanTichy/",
+            "dir": "work/KiotoAokiJanTichy/",
             "cover": {
                 "code": "wYgNwBkZS8c",
                 "type": "youtube",
@@ -423,7 +423,7 @@
         },
         {
             "name": "Marzena\nAbrahamik",
-            "dir": "./work/MarzenaAbrahamik/",
+            "dir": "work/MarzenaAbrahamik/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",
@@ -519,7 +519,7 @@
         },
         {
             "name": "Lynn Renee\nPersin",
-            "dir": "./work/LynnReneePersin/",
+            "dir": "work/LynnReneePersin/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",
@@ -600,7 +600,7 @@
         },
         {
             "name": "Eileen Ryan",
-            "dir": "./work/EileenRyan/",
+            "dir": "work/EileenRyan/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",
@@ -656,7 +656,7 @@
         },
         {
             "name": "Kelly Costello\n& Karishma\nKalpesh\nDotia",
-            "dir": "./work/KellyCostelloKarishmaKalpeshDotia/",
+            "dir": "work/KellyCostelloKarishmaKalpeshDotia/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",
@@ -712,7 +712,7 @@
         },
         {
             "name": "Marzena\nAbrahamik\n& Justin\nSchmitz",
-            "dir": "./work/MarzenaAbrahamikJustinSchmitz/",
+            "dir": "work/MarzenaAbrahamikJustinSchmitz/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",
@@ -738,7 +738,7 @@
         },
         {
             "name": "Jeff\nPhillips",
-            "dir": "./work/JeffPhillips/",
+            "dir": "work/JeffPhillips/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",
@@ -824,7 +824,7 @@
         },
         {
             "name": "Krista\nWortendyke",
-            "dir": "./work/KristaWortendyke/",
+            "dir": "work/KristaWortendyke/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",
@@ -900,7 +900,7 @@
         },
         {
             "name": "Doug\nMcGoldrick",
-            "dir": "./work/DougMcGoldrick/",
+            "dir": "work/DougMcGoldrick/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",
@@ -956,7 +956,7 @@
         },
         {
             "name": "John Preus",
-            "dir": "./work/JohnPreus/",
+            "dir": "work/JohnPreus/",
             "cover": {
                 "file": "chair1.gif",
                 "type": "img",
@@ -993,7 +993,7 @@
         },
         {
             "name": "Justin\nSchmitz",
-            "dir": "./work/JustinSchmitz/",
+            "dir": "work/JustinSchmitz/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",
@@ -1024,7 +1024,7 @@
         },
         {
             "name": "Janet\nMesic-\nMackie",
-            "dir": "./work/JanetMesicMackie/",
+            "dir": "work/JanetMesicMackie/",
             "cover": {
                 "file": "COVER.jpg",
                 "type": "image",

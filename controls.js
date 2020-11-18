@@ -1,5 +1,5 @@
 
-import { DeviceOrientationControls } from './three/examples/jsm/controls/DeviceOrientationControls.js';
+import { DeviceOrientationControls } from app.url + '/three/examples/jsm/controls/DeviceOrientationControls.js';
 
 export var controls = {
     locked: false,
@@ -9,7 +9,7 @@ export var controls = {
 var orientationControls,
     offset,
     isUserInteracting = true,
-    onMouseDownMouseX = window.innerWidth / 2, 
+    onMouseDownMouseX = window.innerWidth / 2,
     onMouseDownMouseY = window.innerHeight / 2,
     lon = 0, onMouseDownLon = 0,
     lat = 0, onMouseDownLat = 0,
@@ -19,27 +19,27 @@ var orientationControls,
 var mouse, INTERSECTED, raycaster;
 
 controls.init = function(app) {
-    
+
     this.lookat = new app.THREE.Vector3();
-    
+
     raycaster = new app.THREE.Raycaster();
     mouse = new app.THREE.Vector2();
-    
+
     app.camera.target = new app.THREE.Vector3(0, 0, -1);
-    
+
     function setMouse(x,y) {
         mouse.x = ( x) * 2 - 1;
         mouse.y = - ( y  ) * 2 + 1;
     }
-    
+
     if(app.mobile) {
         orientationControls = new DeviceOrientationControls(app.camera);
-        
+
         window.oc = orientationControls;
-        
+
         setMouse(0.5, 0.5);
     } else {
-            
+
         document.addEventListener( 'mousemove', onPointerMove, false );
 
 //        app.container.addEventListener( 'touchmove', onPointerMove, false );
@@ -52,7 +52,7 @@ controls.init = function(app) {
             app.camera.updateProjectionMatrix();
 
             app.renderer.setSize( window.innerWidth, window.innerHeight );
-            
+
             app.css.onWindowResize(app);
 
         }
@@ -70,7 +70,7 @@ controls.init = function(app) {
                 lat = ( clientY - onMouseDownMouseY ) * -sens + onMouseDownLat + 90;
 
             }
-            
+
             setMouse(event.clientX / window.innerWidth, event.clientY / window.innerHeight)
         }
 
@@ -81,14 +81,14 @@ controls.init = function(app) {
 //            app.camera.fov = app.THREE.MathUtils.clamp( fov, 10, 75 );
 //
 //            app.camera.updateProjectionMatrix();
-//            
+//
 //            console.log(fov);
 //
 //        }
-        
-        
+
+
     }
-    
+
     function onDocumentClick(event) {
         console.log("tap click");
 
@@ -96,22 +96,22 @@ controls.init = function(app) {
     }
 
     $("#container").on(  'click', onDocumentClick);
-    
+
     $("#container").on( 'touchstart', function(e) {
         e.preventDefault();
-        
+
         onDocumentClick();
     });
 
     function onButton(event) {
         app.nav.back(app)
     }
-    
+
     function onArtistButton(event) {
         app.nav.artistInfo(app, !app.nav.infod);
     }
-    
-    
+
+
     if(app.mobile) {
         $("#back").on( 'touchstart', function(e) {
             e.preventDefault();
@@ -119,7 +119,7 @@ controls.init = function(app) {
             $("#back").addClass("on");
             onButton();
         });
-        
+
         $("#artist-info").on( 'touchstart', function(e) {
             e.preventDefault();
 
@@ -133,14 +133,14 @@ controls.init = function(app) {
             $("#back").removeClass("on");
             $("#artist-info").removeClass("on");
         });
-        
+
         $(window).on( 'touchend', function(e) {
             e.preventDefault();
 
             $("#back").removeClass("on");
             $("#artist-info").removeClass("on");
         });
-        
+
         $("#arrow-left").on( 'touchstart', function(e) {
             e.preventDefault();
 
@@ -152,7 +152,7 @@ controls.init = function(app) {
 
             app.nav.inc(app, 1);
         });
-        
+
     } else {
         $("#back").click(onButton);
         document.addEventListener("keydown", function(e) {
@@ -166,7 +166,7 @@ controls.init = function(app) {
                 $("#back").removeClass("on");
             }
         });
-        
+
         $("#artist-info").click(onArtistButton);
         document.addEventListener("keydown", function(e) {
             if(e.key == "q" || e.key == "Q") {
@@ -179,7 +179,7 @@ controls.init = function(app) {
                 $("#artist-info").removeClass("on");
             }
         });
-        
+
         $("#arrow-left").click(function () {
             app.nav.inc(app, -1);
         });
@@ -203,25 +203,25 @@ controls.update = function(app) {
 //        app.camera.target.x = 1 * Math.sin( phi ) * Math.cos( theta );
 //        app.camera.target.y = 1 * Math.cos( phi );
 //        app.camera.target.z = 1 * Math.sin( phi ) * Math.sin( theta );
-        
+
         var tlat = app.THREE.MathUtils.degToRad( 90 - lat );
         var tlon = app.THREE.MathUtils.degToRad( lon );
-        
+
         this.lookat.copy(app.camera.target);
         this.lookat.applyAxisAngle(new app.THREE.Vector3(1, 0, 0), tlat);
         this.lookat.applyAxisAngle(new app.THREE.Vector3(0, 1, 0), tlon);
-        
+
         if(!this.locked) {
             app.camera.lookAt(this.lookat);
         } else {
 //            app.camera.lookAt(app.camera.target);
         }
     }
-    
+
     raycaster.setFromCamera( mouse, app.camera );
-    
+
 //    if(app.current_screen.objs.length == app.current_screen.length) {
-    
+
         let intersects = app.nav.location && app.nav.location.objs ? raycaster.intersectObjects( app.nav.location.objs ) : null;
 
         if ( intersects && intersects.length > 0 ) {
@@ -256,7 +256,7 @@ controls.update = function(app) {
 
 controls.lock = function(app, locked) {
     this.locked = locked;
-    
+
     if(locked) {
         if(!app.mobile) {
             app.camera.target.copy(this.lookat);

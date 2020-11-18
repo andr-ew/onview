@@ -14,7 +14,7 @@ TODO:
         <meta content="width=device-width, initial-scale=1" name="viewport">
         <?php wp_head(); ?>
 	</head>
-	<body>
+	<body data-url="<?php echo get_template_directory_uri(); ?>">
         <div id="container"></div>
 <!--		<div id="blocker"></div>-->
         <header>
