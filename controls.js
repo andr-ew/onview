@@ -1,6 +1,3 @@
-
-import { DeviceOrientationControls } from app.url + '/three/examples/jsm/controls/DeviceOrientationControls.js';
-
 export var controls = {
     locked: false,
     lookat: {}
@@ -18,7 +15,9 @@ var orientationControls,
 
 var mouse, INTERSECTED, raycaster;
 
-controls.init = function(app) {
+controls.init = async function(app) {
+
+    var { DeviceOrientationControls } = await import(window.url + '/three/examples/jsm/controls/DeviceOrientationControls.js');
 
     this.lookat = new app.THREE.Vector3();
 

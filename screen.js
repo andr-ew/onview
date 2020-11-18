@@ -1,4 +1,8 @@
-import { Cover, Artwork } from app.url + "/work.js";
+export var screen = {}
+
+let init = async function() {
+
+var { Cover, Artwork } = await import(window.url + "/work.js");
 
 var isomap = [19,3,5,17,34,21,20,1,7,16,18,31,32,36,22,41,4,0,15,24,35,33,8,6,2,12,23,38,37,30,10,9,14,30,27,25,13,11,28,40,26];
 
@@ -49,7 +53,7 @@ function placeSphere(sphereVects, app, i) {
     }
 }
 
-export var nav = {
+var nav = {
     location: {},
     homescreen: {},
     zoomed: false,
@@ -340,12 +344,12 @@ function Artistscreen(cover, app, idx, dir) {
         }
     }
 
-    this.works[0] = new Artwork(app, app.url + '/' + app.data.artists[idx].dir, app.data.artists[idx].cover, place(this, app, 0));
+    this.works[0] = new Artwork(app, window.url + '/' + app.data.artists[idx].dir, app.data.artists[idx].cover, place(this, app, 0));
 
     for(let i in app.data.artists[idx].work) {
         let l = Number(i);
         let m = l + 1;
-        this.works[m] = new Artwork(app, app.url + '/' + app.data.artists[idx].dir, app.data.artists[idx].work[l], place(this, app, m));
+        this.works[m] = new Artwork(app, window.url + '/' + app.data.artists[idx].dir, app.data.artists[idx].work[l], place(this, app, m));
     }
 }
 
@@ -449,7 +453,7 @@ Artistscreen.prototype.zoom = function(app, zoomed, i, t, del) {
 
 }
 
-export function Homescreen(app) {
+function Homescreen(app) {
     Screen.call(this, app, new app.THREE.Vector3(0,0,-1), false, false, true, true, true);
     this.type = "homescreen";
 
@@ -477,7 +481,7 @@ export function Homescreen(app) {
         let v = app.data.artists[k];
         let i = n;
 
-        this.works[i] = new Cover(app, app.url + '/' + v.dir, v.cover, v.name, place(this, app, i, v.name));
+        this.works[i] = new Cover(app, window.url + '/' + v.dir, v.cover, v.name, place(this, app, i, v.name));
 
         n++;
     }
@@ -493,3 +497,10 @@ Homescreen.prototype.scoot = function(app, scooted, t, del) {
        if(this.works[i].screen.collapsed) this.works[i].screen.scoot(app, scooted, t, del);
     }
 }
+
+screen.Homescreen = Homescreen;
+screen.nav = nav;
+
+}
+
+init();

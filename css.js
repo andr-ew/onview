@@ -1,9 +1,11 @@
-import { CSS3DRenderer, CSS3DObject } from app.url + '/three/examples/jsm/renderers/CSS3DRenderer.js';
+export var css = {}
+
+let init = async function() {
+
+var { CSS3DRenderer, CSS3DObject } = await import(window.url + '/three/examples/jsm/renderers/CSS3DRenderer.js');
 
 var camera, scene, renderer;
 var controls;
-
-export var css = {}
 
 css.makeYoutube = function ( id, s ) {
 
@@ -120,3 +122,7 @@ css.onWindowResize = function(app) {
     this.renderer.setSize( window.innerWidth, window.innerHeight );
 
 }
+
+}
+
+init();

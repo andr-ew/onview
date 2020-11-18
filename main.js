@@ -7,120 +7,121 @@ window.mobileAndTabletCheck = function() {
 var app = {}
 
 app.mobile = window.mobileAndTabletCheck();
-app.url = $("body").attr("data-url");
+window.url = $("body").attr("data-url");
 
 ///pfff - gotta use a dynamic import here. try running everything in a big fat async function and using await import()
 
-async function bigasync() {
-    THREE = await import(app.url + '/three/build/three.module.js');
-    { controls } = await import(pp.url + '/controls.js');
-    { Homescreen, nav } = await import(app.url + '/screen.js');
-    { lookAtExt }  = await import(app.url + '/lookat.js');
-    { css }  = await import(app.url + '/css.js');
+let bigasync = async function() {
 
-    app.THREE = THREE;
-    app.css = css;
-    window.css = css;
-    //            app.mobile = true;
+var THREE = await import(window.url + '/three/build/three.module.js');
+var { controls } = await import(window.url + '/controls.js');
+var { screen } = await import(window.url + '/screen.js');
+var { lookAtExt }  = await import(window.url + '/lookat.js');
+var { css }  = await import(window.url + '/css.js');
 
-    let requestURL = app.url + '/data.json';
-    let request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-    request.responseType = 'json';
-    request.send();
-    request.onerror = function(xhr, status, error) {
-        console.log("erroe");
-        console.log(request.response, xhr, status, error);
-    }
-    request.onload = function() {
-        app.data = request.response;
+app.THREE = THREE;
+app.css = css;
+window.css = css;
+//            app.mobile = true;
 
-        console.log(request);
+let requestURL = window.url + '/data.json';
+let request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+request.onerror = function(xhr, status, error) {
+    console.log("erroe");
+    console.log(request.response, xhr, status, error);
+}
+request.onload = function() {
+    app.data = request.response;
 
-        app.loading = {
-            size: 0,
-            progress: 0,
-            update: function(prog) {
-                this.progress += prog;
+    console.log(request);
 
-                console.log("LOADING: " + this.progress + " / " + this.size);
+    app.loading = {
+        size: 0,
+        progress: 0,
+        update: function(prog) {
+            this.progress += prog;
 
-                $("#startButton").html("LOADING: " + Math.round(this.progress / this.size * 100) + "%");
+            console.log("LOADING: " + this.progress + " / " + this.size);
 
-                if(this.size > 100 && this.progress == this.size) {
-                    var overlay = document.getElementById( 'overlay' );
-                    overlay.remove();
+            $("#startButton").html("LOADING: " + Math.round(this.progress / this.size * 100) + "%");
 
-                    css.youtubeBump();
-                }
+            if(this.size > 100 && this.progress == this.size) {
+                var overlay = document.getElementById( 'overlay' );
+                overlay.remove();
+
+                css.youtubeBump();
             }
         }
+    }
 
-        $("#startButton").removeClass("hidden");
+    $("#startButton").removeClass("hidden");
 
-        if(true) {
-            app.startButton = document.getElementById( 'startButton' );
+    if(true) {
+        app.startButton = document.getElementById( 'startButton' );
 
-            app.startButton.addEventListener( 'click', function () {
-                $("#startButton").html("LOADING: 0%");
-                app.init();
-                animate();
-            }, false );
-        } else {
+        app.startButton.addEventListener( 'click', function () {
+            $("#startButton").html("LOADING: 0%");
             app.init();
             animate();
-        }
+        }, false );
+    } else {
+        app.init();
+        animate();
     }
+}
 
-    app.init = function() {
+app.init = function() {
 
-        app.container = document.getElementById( 'container' );
+    app.container = document.getElementById( 'container' );
 
-        app.scene = new app.THREE.Scene();
-        app.scene.background = new app.THREE.Color(0xffffff);
-        app.camera = new app.THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 2000);
-    //    app.camera.position.z = 30;
-        app.camera.target = new app.THREE.Vector3( 0, 0, 0 );
-        app.camera.tween = new TWEEN.Tween(app.camera.target);
-        window.camera = app.camera;
-        app.camera.lookAt = lookAtExt(app);
+    app.scene = new app.THREE.Scene();
+    app.scene.background = new app.THREE.Color(0xffffff);
+    app.camera = new app.THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 2000);
+//    app.camera.position.z = 30;
+    app.camera.target = new app.THREE.Vector3( 0, 0, 0 );
+    app.camera.tween = new TWEEN.Tween(app.camera.target);
+    window.camera = app.camera;
+    app.camera.lookAt = lookAtExt(app);
 
-        app.renderer = new app.THREE.WebGLRenderer({ antialias: true, powerPreference: "low-power", alpha: true });
-        app.renderer.setClearColor( 0xffffff, 0);
-    //    app.renderer.setClearAlpha(0.1);
+    app.renderer = new app.THREE.WebGLRenderer({ antialias: true, powerPreference: "low-power", alpha: true });
+    app.renderer.setClearColor( 0xffffff, 0);
+//    app.renderer.setClearAlpha(0.1);
 
-        app.scene.background = null;
-
-
-        app.renderer.setSize( window.innerWidth, window.innerHeight );
-        window.renderer = app.renderer
-
-        app.nav = nav;
-        app.nav.homescreen = new Homescreen(app);
-        app.nav.location = app.nav.homescreen;
-
-        app.controls = controls;
+    app.scene.background = null;
 
 
+    app.renderer.setSize( window.innerWidth, window.innerHeight );
+    window.renderer = app.renderer
 
-        controls.init(app);
-        css.init(app);
+    app.nav = screen.nav;
+    app.nav.homescreen = new screen.Homescreen(app);
+    app.nav.location = app.nav.homescreen;
 
-        app.container.appendChild( app.renderer.domElement );
+    app.controls = controls;
 
-    }
 
-    function animate() {
-        requestAnimationFrame( animate );
 
-        controls.update(app);
-    //                app.homescreen.update(1/60);
+    controls.init(app);
+    css.init(app);
 
-        app.renderer.render( app.scene, app.camera );
-        css.render(app);
+    app.container.appendChild( app.renderer.domElement );
 
-        TWEEN.update();
-    }
+}
+
+function animate() {
+    requestAnimationFrame( animate );
+
+    controls.update(app);
+//                app.homescreen.update(1/60);
+
+    app.renderer.render( app.scene, app.camera );
+    css.render(app);
+
+    TWEEN.update();
+}
 }
 
 bigasync();

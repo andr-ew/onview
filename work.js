@@ -193,7 +193,7 @@ export function Cover(app, dir, work_data, covertxt, onload) {
         let loader = new app.THREE.FontLoader();
         let txtmat = new app.THREE.MeshBasicMaterial( {color: 0xED3A43 });
 
-        loader.load(app.url + '/fonts/Space Mono_Italic.json', function ( font ) {
+        loader.load(window.url + '/fonts/Space Mono_Italic.json', function ( font ) {
 
             me.covergrp = new app.THREE.Group();
 
