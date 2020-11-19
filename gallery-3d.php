@@ -48,6 +48,40 @@ TODO:
         <div class="work-title">
             <p>Charles Anderson, Michele Clark Magnet High School</p>
         </div>
+        <section id="gallery-data" class="gallery-data">
+            <section id="artists" class="artists">
+                <article class="artist" data-name="Matt Siber" data-dir="work/MattSiber/">
+                    <article class="cover" data-file="COVER.jpg" data-type="image" data-title="Untitled Object 1"></article>
+                    <section class="works">
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                    </section>
+                </article>
+                <article class="artist" data-name="Matt Siber 2" data-dir="work/MattSiber/">
+                    <article class="cover" data-file="COVER.jpg" data-type="image" data-title="Untitled Object 1"></article>
+                    <section class="works">
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                    </section>
+                </article>
+                <article class="artist" data-name="Matt Siber 3" data-dir="work/MattSiber/">
+                    <article class="cover" data-file="COVER.jpg" data-type="image" data-title="Untitled Object 1"></article>
+                    <section class="works">
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                        <article class="work" data-file="20191209cpslives-siber253.jpg" data-type="image" data-title="Untitled Object 13"></article>
+                    </section>
+                </article>
+            </section>
+        </section>
         <section id="info" class="info">    `
             <article class="main" id="info-main">
                 <h1 class="bigtitle">(Re)Visions of Chicago Public Schools</h1>
