@@ -9,8 +9,6 @@ var app = {}
 app.mobile = window.mobileAndTabletCheck();
 window.url = $("body").attr("data-url");
 
-///pfff - gotta use a dynamic import here. try running everything in a big fat async function and using await import()
-
 let bigasync = async function() {
 
 var THREE = await import(window.url + '/three/build/three.module.js');
@@ -18,6 +16,14 @@ var { controls } = await import(window.url + '/controls.js');
 var { screen } = await import(window.url + '/screen.js');
 var { lookAtExt }  = await import(window.url + '/lookat.js');
 var { css }  = await import(window.url + '/css.js');
+
+/*
+
+TODO:
+
+update laoders & other relevant bits to the new wp queried data format
+
+*/
 
 app.THREE = THREE;
 app.css = css;

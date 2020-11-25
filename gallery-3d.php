@@ -49,10 +49,61 @@ TODO:
             <p>Charles Anderson, Michele Clark Magnet High School</p>
         </div>
 		<section id="gallery-data2" class="gallery-data">
-			<section class="artists">
+			<section class="rooms">
 <?php
 
+$subpages = get_posts(array(
+	'post_type' => 'page',
+	'post_parent'=> $post->ID
+));
 
+function media($w, $class) {
+	$type = $w['type'];
+	$title = $w['title'];
+
+	if($type == 'YouTube') {
+	?>
+	<article class="<?php echo $class ?>" data-link="<?php echo $w['link']; ?>" data-type="<?php echo $type; ?>" data-title="<?php echo $title; ?>"></article>
+	<?php
+	} else {
+	?>
+	<article class="<?php echo $class ?>" data-file="<?php echo $w['image']; ?>" data-type="<?php echo $type; ?>" data-title="<?php echo $title; ?>"></article>
+	<?php
+	}
+}
+
+if($subpages) {
+	foreach($subpages as $p) {
+		?>
+		<article class="room" data-name="<?php $p->post_title ?>">
+			<?php
+
+			$artworks = get_field('artwork', $p);
+
+			if($artworks) {
+				foreach($artworks as $w) {
+					if($w['cover'] == true) {
+						media($w, 'cover');
+						break;
+					}
+
+				}
+
+				?>
+					<section class="works">
+						<?php
+						foreach($artworks as $w) {
+							media($w, 'work');
+						}
+						?>
+					</section>
+				<?php
+			}
+			?>
+		</article>
+		<?php
+	}
+}
 
 ?>
 			</section>
