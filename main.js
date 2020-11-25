@@ -24,55 +24,6 @@ app.css = css;
 window.css = css;
 //            app.mobile = true;
 
-let requestURL = window.url + '/data.json';
-let request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
-request.onerror = function(xhr, status, error) {
-    console.log("erroe");
-    console.log(request.response, xhr, status, error);
-}
-request.onload = function() {
-    app.data = request.response;
-
-    console.log(request);
-
-    app.loading = {
-        size: 0,
-        progress: 0,
-        update: function(prog) {
-            this.progress += prog;
-
-            console.log("LOADING: " + this.progress + " / " + this.size);
-
-            $("#startButton").html("LOADING: " + Math.round(this.progress / this.size * 100) + "%");
-
-            if(this.size > 100 && this.progress == this.size) {
-                var overlay = document.getElementById( 'overlay' );
-                overlay.remove();
-
-                css.youtubeBump();
-            }
-        }
-    }
-
-    $("#startButton").removeClass("hidden");
-
-    if(true) {
-        app.startButton = document.getElementById( 'startButton' );
-
-        app.startButton.addEventListener( 'click', function () {
-            $("#startButton").html("LOADING: 0%");
-            app.init();
-            animate();
-        }, false );
-    } else {
-        app.init();
-        animate();
-    }
-}
-
 app.init = function() {
 
     app.container = document.getElementById( 'container' );
@@ -122,6 +73,79 @@ function animate() {
 
     TWEEN.update();
 }
+
+$(() => {
+    app.loading = {
+        size: 0,
+        progress: 0,
+        update: function(prog) {
+            this.progress += prog;
+
+            console.log("LOADING: " + this.progress + " / " + this.size);
+
+            $("#startButton").html("LOADING: " + Math.round(this.progress / this.size * 100) + "%");
+
+            if(this.progress >= this.size) {
+                var overlay = document.getElementById( 'overlay' );
+                overlay.remove();
+
+                css.youtubeBump();
+            }
+        }
+    }
+
+    app.data = { artists: [] }
+
+    $('.gallery-data .artists .artist').each(function(i) {
+        app.data.artists[i] = {
+            name: $(this).attr('data-name'),
+            dir: $(this).attr('data-dir')
+        }
+        let artist = app.data.artists[i];
+
+        $(this).find(".cover").each(function() {
+            artist.cover = {
+                file: $(this).attr('data-file'),
+                type: $(this).attr('data-type'),
+                title: $(this).attr('data-title')
+            }
+            app.loading.size++;
+        });
+
+        $(this).find(".works").each(function() {
+            artist.work = [];
+
+            $(this).find(".work").each(function(i) {
+                artist.work[i] = {
+                    file: $(this).attr('data-file'),
+                    type: $(this).attr('data-type'),
+                    title: $(this).attr('data-title')
+                }
+                app.loading.size++;
+            });
+        });
+    });
+
+    console.log(app.data);
+
+
+
+    $("#startButton").removeClass("hidden");
+
+    if(true) {
+        app.startButton = document.getElementById( 'startButton' );
+
+        app.startButton.addEventListener( 'click', function () {
+            $("#startButton").html("LOADING: 0%");
+            app.init();
+            animate();
+        }, false );
+    } else {
+        app.init();
+        animate();
+    }
+});
+
 }
 
 bigasync();

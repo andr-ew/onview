@@ -87,7 +87,7 @@ export function Work(app, dir, work_data, onload) {
 
     if(this.file && this.type == "image") {
 
-        app.loading.size++;
+        //app.loading.size++;
 
         addImage(dir + this.file, function(img) {
 

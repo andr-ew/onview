@@ -48,8 +48,17 @@ TODO:
         <div class="work-title">
             <p>Charles Anderson, Michele Clark Magnet High School</p>
         </div>
+		<section id="gallery-data2" class="gallery-data">
+			<section class="artists">
+<?php
+
+
+
+?>
+			</section>
+		</section>
         <section id="gallery-data" class="gallery-data">
-            <section id="artists" class="artists">
+            <section class="artists">
                 <article class="artist" data-name="Matt Siber" data-dir="work/MattSiber/">
                     <article class="cover" data-file="COVER.jpg" data-type="image" data-title="Untitled Object 1"></article>
                     <section class="works">
