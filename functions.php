@@ -34,7 +34,7 @@ function enque() {
     //wp_enqueue_script( 'jq', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js');
 
     wp_deregister_script('jquery');
-	wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js', false, '1.3.2', true);
+	wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', false, '1.3.2', true);
 	wp_enqueue_script('jquery');
 
     wp_enqueue_script( 'tween', get_template_directory_uri() . '/tween.umd.js', array ( 'jquery' ), '0.0.0', true);

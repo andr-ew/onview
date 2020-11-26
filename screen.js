@@ -104,7 +104,8 @@ nav.info = function(app, infod, name) {
 
 nav.artistInfo = function(app, infod) {
     if(this.location.type == "artistscreen") {
-        this.info(app, infod, this.location.name.replace(/\s+/g, '').replace(/(&amp;|&)/g, '').replace(/(\-)/g, '').replace(/(\n)/g, ''));
+        console.log('id', this.location.id);
+        this.info(app, infod, this.location.id);
 
         $("#artist-info").toggleClass("visible", !infod);
     }
@@ -322,7 +323,8 @@ function Artistscreen(cover, app, idx, dir) {
     Screen.call(this, app, new app.THREE.Vector3().copy(dir).multiply(new app.THREE.Vector3(-1, 1, -1)), true, true, false, false, false);
     this.type = "artistscreen";
     this.cover = cover;
-    this.name = app.data.artists[idx].name;
+    this.name = app.data.rooms[idx].name;
+    this.id = app.data.rooms[idx].id;
 
     function place(me, app, k) {
         return function() {
@@ -344,12 +346,12 @@ function Artistscreen(cover, app, idx, dir) {
         }
     }
 
-    this.works[0] = new Artwork(app, window.url + '/' + app.data.artists[idx].dir, app.data.artists[idx].cover, place(this, app, 0));
+    this.works[0] = new Artwork(app, window.url + '/' + app.data.rooms[idx].dir, app.data.rooms[idx].cover, place(this, app, 0));
 
-    for(let i in app.data.artists[idx].work) {
+    for(let i in app.data.rooms[idx].work) {
         let l = Number(i);
         let m = l + 1;
-        this.works[m] = new Artwork(app, window.url + '/' + app.data.artists[idx].dir, app.data.artists[idx].work[l], place(this, app, m));
+        this.works[m] = new Artwork(app, window.url + '/' + app.data.rooms[idx].dir, app.data.rooms[idx].work[l], place(this, app, m));
     }
 }
 
@@ -477,8 +479,8 @@ function Homescreen(app) {
     }
 
     var n = 0;
-    for(let k in app.data.artists) {
-        let v = app.data.artists[k];
+    for(let k in app.data.rooms) {
+        let v = app.data.rooms[k];
         let i = n;
 
         this.works[i] = new Cover(app, window.url + '/' + v.dir, v.cover, v.name, place(this, app, i, v.name));

@@ -21,7 +21,7 @@ var { css }  = await import(window.url + '/css.js');
 
 TODO:
 
-update laoders & other relevant bits to the new wp queried data format
+update loaders & other relevant bits to the new wp queried data format
 
 */
 
@@ -45,7 +45,7 @@ app.init = function() {
 
     app.renderer = new app.THREE.WebGLRenderer({ antialias: true, powerPreference: "low-power", alpha: true });
     app.renderer.setClearColor( 0xffffff, 0);
-//    app.renderer.setClearAlpha(0.1);
+   // app.renderer.setClearAlpha(0.1);
 
     app.scene.background = null;
 
@@ -91,6 +91,7 @@ $(() => {
 
             $("#startButton").html("LOADING: " + Math.round(this.progress / this.size * 100) + "%");
 
+            //BUG: sometimes this triggers early!
             if(this.progress >= this.size) {
                 var overlay = document.getElementById( 'overlay' );
                 overlay.remove();
@@ -100,32 +101,34 @@ $(() => {
         }
     }
 
-    app.data = { artists: [] }
+    app.data = { rooms: [] }
 
-    $('.gallery-data .artists .artist').each(function(i) {
-        app.data.artists[i] = {
+    $('.gallery-data .rooms .room').each(function(i) {
+        app.data.rooms[i] = {
             name: $(this).attr('data-name'),
-            dir: $(this).attr('data-dir')
+            id:  $(this).attr('data-id')
         }
-        let artist = app.data.artists[i];
+        let room = app.data.rooms[i];
 
         $(this).find(".cover").each(function() {
-            artist.cover = {
+            room.cover = {
                 file: $(this).attr('data-file'),
                 type: $(this).attr('data-type'),
-                title: $(this).attr('data-title')
+                title: $(this).attr('data-title'),
+                link:  $(this).attr('data-link')
             }
             app.loading.size++;
         });
 
         $(this).find(".works").each(function() {
-            artist.work = [];
+            room.work = [];
 
             $(this).find(".work").each(function(i) {
-                artist.work[i] = {
+                room.work[i] = {
                     file: $(this).attr('data-file'),
                     type: $(this).attr('data-type'),
-                    title: $(this).attr('data-title')
+                    title: $(this).attr('data-title'),
+                    link:  $(this).attr('data-link')
                 }
                 app.loading.size++;
             });
@@ -133,8 +136,6 @@ $(() => {
     });
 
     console.log(app.data);
-
-
 
     $("#startButton").removeClass("hidden");
 

@@ -48,7 +48,7 @@ TODO:
         <div class="work-title">
             <p>Charles Anderson, Michele Clark Magnet High School</p>
         </div>
-		<section id="gallery-data2" class="gallery-data">
+		<section id="gallery-data" class="gallery-data">
 			<section class="rooms">
 <?php
 
@@ -75,7 +75,7 @@ function media($w, $class) {
 if($subpages) {
 	foreach($subpages as $p) {
 		?>
-		<article class="room" data-name="<?php $p->post_title ?>">
+		<article class="room" data-name="<?php echo get_the_title($p->ID) ?>" data-ID="<?php echo $p->ID ?>">
 			<?php
 
 			$artworks = get_field('artwork', $p);
@@ -108,7 +108,7 @@ if($subpages) {
 ?>
 			</section>
 		</section>
-        <section id="gallery-data" class="gallery-data">
+        <section id="gallery-data2" class="gallery-data">
             <section class="artists">
                 <article class="artist" data-name="Matt Siber" data-dir="work/MattSiber/">
                     <article class="cover" data-file="COVER.jpg" data-type="image" data-title="Untitled Object 1"></article>
@@ -142,7 +142,28 @@ if($subpages) {
                 </article>
             </section>
         </section>
-        <section id="info" class="info">    `
+		<section id="info" class="info">
+			<article class="main" id="info-main">
+				<?php the_field('info'); ?>
+			</article>
+			<?php
+			if($subpages) {
+				foreach($subpages as $p) {
+					?>
+						<article class="main" id="info-<?php echo $p->ID ?>">
+							<?php the_field('info', $p->ID); ?>
+						</article>
+					<?php
+				}
+			}
+			?>
+			<footer>
+                <p>Copyright CPS Lives &amp; 062 2020 <a href="https://cpslives.org/" target="_blank">cpslives.org</a>   <a href="https://www.062official.com/" target="_blank">062official.com</a></p>
+                <p>site by acs <a href="http://andrewcs.info/" target="_blank">andrewcs.info</a></p>
+
+            </footer>
+		</section>
+        <section style="height: 0; opacity: 0; overflow: hidden;" id="info2" class="info">    `
             <article class="main" id="info-main">
                 <h1 class="bigtitle">(Re)Visions of Chicago Public Schools</h1>
 
@@ -545,6 +566,7 @@ if($subpages) {
             <footer>
                 <p>Copyright CPS Lives &amp; 062 2020 <a href="https://cpslives.org/" target="_blank">cpslives.org</a>   <a href="https://www.062official.com/" target="_blank">062official.com</a></p>
                 <p>site by acs <a href="http://andrewcs.info/" target="_blank">andrewcs.info</a></p>
+
             </footer>
         </section>
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->

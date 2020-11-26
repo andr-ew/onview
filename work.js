@@ -84,12 +84,16 @@ export function Work(app, dir, work_data, onload) {
     var wrk = this;
     this.grp = new app.THREE.Group();
 
-
-    if(this.file && this.type == "image") {
+    console.log("hello?", this.file, this.type);
+    if(this.file && this.type == "Image") {
 
         //app.loading.size++;
 
-        addImage(dir + this.file, function(img) {
+        console.log("addImage", this.file);
+
+        addImage(this.file, function(img) {
+
+            console.log("loaded");
 
             wrk.img = img;
 
@@ -113,9 +117,9 @@ export function Work(app, dir, work_data, onload) {
             app.loading.update(1);
             wrk.onload();
         });
-    } else if(this.type == "youtube" && this.code) {
+    } else if(this.type == "YouTube" && this.link) {
 
-        let iframe = app.css.makeYoutube(this.code, 0.0025);
+        let iframe = app.css.makeYoutube(this.link, 0.0025);
 
 
 //        console.log(iframe);
@@ -143,9 +147,9 @@ export function Work(app, dir, work_data, onload) {
         }
 
         wrk.onload();
-    } else if(this.type == "img" && this.file) {
+    } else if(this.type == "GIF" && this.file) {
 
-        let dom = app.css.makeImg(dir + this.file, 0.0035);
+        let dom = app.css.makeImg(this.file, 0.0035);
 
 
 //        console.log(iframe);

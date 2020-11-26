@@ -18,7 +18,7 @@ css.makeYoutube = function ( id, s ) {
     iframe.style.width = '480px';
     iframe.style.height = '360px';
     iframe.style.border = '0px';
-    iframe.src = [ 'https://www.youtube.com/embed/', id, '?rel=0&autoplay=0' ].join( '' );
+    iframe.src = [ id, '?rel=0&autoplay=0' ].join( '' );
     div.appendChild( iframe );
 
     var object = new CSS3DObject( div );
