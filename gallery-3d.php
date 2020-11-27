@@ -49,7 +49,7 @@ TODO:
             <p>Charles Anderson, Michele Clark Magnet High School</p>
         </div>
 		<section id="gallery-data" class="gallery-data">
-			<section class="rooms">
+
 <?php
 
 $subpages = get_posts(array(
@@ -72,41 +72,51 @@ function media($w, $class) {
 	}
 }
 
-if($subpages) {
-	foreach($subpages as $p) {
-		?>
-		<article class="room" data-name="<?php echo get_the_title($p->ID) ?>" data-ID="<?php echo $p->ID ?>">
-			<?php
+function room($p, $class) {
+	?>
+	<article class="room <?php echo $class; ?>" data-name="<?php echo get_the_title($p->ID) ?>" data-ID="<?php echo $p->ID ?>">
+		<?php
 
-			$artworks = get_field('artwork', $p);
+		$artworks = get_field('artwork', $p);
 
-			if($artworks) {
-				foreach($artworks as $w) {
-					if($w['cover'] == true) {
-						media($w, 'cover');
-						break;
-					}
-
+		if($artworks) {
+			foreach($artworks as $w) {
+				if($w['cover'] == true) {
+					media($w, 'cover');
+					break;
 				}
 
-				?>
-					<section class="works">
-						<?php
-						foreach($artworks as $w) {
-							media($w, 'work');
-						}
-						?>
-					</section>
-				<?php
 			}
+
 			?>
-		</article>
-		<?php
-	}
+				<section class="works">
+					<?php
+					foreach($artworks as $w) {
+						media($w, 'work');
+					}
+					?>
+				</section>
+			<?php
+		}
+		?>
+	</article>
+	<?php
 }
 
+if($subpages) {
 ?>
-			</section>
+	<section class="rooms multiple">
+<?php
+	foreach($subpages as $p) {
+		room($p, '');
+	}
+	?>
+	</section>
+	<?php
+} else {
+	room($post, 'single');
+}
+?>
 		</section>
         <section id="gallery-data2" class="gallery-data">
             <section class="artists">
