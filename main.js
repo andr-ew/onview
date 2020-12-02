@@ -143,10 +143,12 @@ $(() => {
                     title: $(this).attr('data-title'),
                     link:  $(this).attr('data-link')
                 }
-                app.loading.size++;
+                // app.loading.size++;
             });
         });
     });
+
+    app.loading.size = $(".meta").attr('data-size')
 
     console.log(app.data);
 

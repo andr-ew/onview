@@ -84,7 +84,7 @@ export function Work(app, dir, work_data, onload) {
     var wrk = this;
     this.grp = new app.THREE.Group();
 
-    console.log("hello?", this.file, this.type);
+    // console.log("hello?", this.file, this.type);
     if(this.file && this.type == "Image") {
 
         //app.loading.size++;
@@ -114,8 +114,9 @@ export function Work(app, dir, work_data, onload) {
                 wrk.main.mat.opacity = wrk.main.opacity;
             }
 
-            app.loading.update(1);
             wrk.onload();
+            
+            app.loading.update(1);
         });
     } else if(this.type == "YouTube" && this.link) {
 

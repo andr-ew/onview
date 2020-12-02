@@ -59,7 +59,11 @@ $subpages = get_posts(array(
 	'post_parent'=> $post->ID
 ));
 
+$size = 0;
+
 function media($w, $class) {
+	global $size;
+
 	$type = $w['type'];
 	$title = $w['title'];
 
@@ -71,6 +75,10 @@ function media($w, $class) {
 	?>
 	<article class="<?php echo $class ?>" data-file="<?php echo $w['image']; ?>" data-type="<?php echo $type; ?>" data-title="<?php echo $title; ?>"></article>
 	<?php
+	}
+
+	if($type == 'Image') {
+		$size++;
 	}
 }
 
@@ -118,6 +126,7 @@ if($subpages) {
 }
 ?>
 		</section>
+		<section class="meta" data-size="<?php echo $size; ?>"></section>
 		<section id="info" class="info">
 			<article class="main" id="info-main">
 				<?php the_field('info'); ?>
