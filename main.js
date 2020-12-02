@@ -103,7 +103,7 @@ $(() => {
             //BUG: sometimes this triggers early!
             if(this.progress >= this.size) {
                 var overlay = document.getElementById( 'overlay' );
-                overlay.remove();
+                if(overlay) overlay.remove();
 
                 css.youtubeBump();
             }

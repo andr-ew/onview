@@ -110,12 +110,13 @@ nav.info = function(app, infod, name) {
 
 nav.artistInfo = function(app, infod) {
     if(this.location.type == "artistscreen") {
-        this.info(app, false, "main");
-
         if(this.location.type2 != "homescreen") {
+            this.info(app, infod, this.location.id);
             console.log('id', this.location.id);
 
             $("#artist-info").toggleClass("visible", !infod);
+        } else {
+            this.info(app, false, "main");
         }
     }
 }
