@@ -1,5 +1,5 @@
 export var lookAtExt = function(app) {
-    
+
     var _m1 = new app.THREE.Matrix4();
     var _target = new app.THREE.Vector3();
     var _position = new app.THREE.Vector3();
@@ -25,7 +25,7 @@ export var lookAtExt = function(app) {
 
         _position.setFromMatrixPosition( this.matrixWorld );
 
-        if ( this.isCamera || this.isLight ) {  
+        if ( this.isCamera || this.isLight ) {
 
             _m1.lookAt( _position, _target, this.up );
 

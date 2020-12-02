@@ -81,11 +81,17 @@ nav.zoom = function(app, zoomed, work, artistscreen) {
             app.controls.lock(app, zoomed);
             this.zoomindex = work ? work.index : -1;
             this.location.zoom(app, zoomed, this.zoomindex, 1000, 0);
-            this.homescreen.lighten(app, zoomed ? 1 : 0.75, 1000);
+
+            if(this.type2 != "homescreen") {
+                this.homescreen.lighten(app, zoomed ? 1 : 0.75, 1000);
+            }
 
             $(".arrows").toggleClass("visible", zoomed);
             $(".work-title").toggleClass("visible", zoomed);
 
+            if(this.location.type2 == "homescreen") {
+                $("#back").html(!zoomed ? "info" : "<span class='left'>→</span> back");
+            }
 
             this.zoomed = zoomed;
         }
@@ -104,10 +110,13 @@ nav.info = function(app, infod, name) {
 
 nav.artistInfo = function(app, infod) {
     if(this.location.type == "artistscreen") {
-        console.log('id', this.location.id);
-        this.info(app, infod, this.location.id);
+        this.info(app, false, "main");
 
-        $("#artist-info").toggleClass("visible", !infod);
+        if(this.location.type2 != "homescreen") {
+            console.log('id', this.location.id);
+
+            $("#artist-info").toggleClass("visible", !infod);
+        }
     }
 }
 
@@ -138,11 +147,17 @@ nav.enter = function(app, artistscreen, enter) {
 }
 
 nav.back = function(app) {
+    console.log("back");
     if(this.location.type == "artistscreen") {
         if(!this.infod) {
             if(!this.zoomed) {
-                app.nav.enter(app, this.location, false);
-                this.location = app.nav.homescreen;
+                if(this.location.type2 == "homescreen") {
+                    console.log(!this.infod, "main");
+                    nav.info(app, !this.infod, "main");
+                } else {
+                    app.nav.enter(app, this.location, false);
+                    this.location = app.nav.homescreen;
+                }
             } else {
                 this.zoom(app, false);
             }
@@ -451,8 +466,6 @@ Artistscreen.prototype.zoom = function(app, zoomed, i, t, del) {
             .start();
         }
     }
-
-
 }
 
 function Homescreen(app) {
@@ -500,6 +513,49 @@ Homescreen.prototype.scoot = function(app, scooted, t, del) {
     }
 }
 
+function Artisthomescreen(app) {
+    Screen.call(this, app, new app.THREE.Vector3(0,0,-1), false, false, true, true, true);
+    this.type = "artistscreen";
+    this.type2 = "homescreen";
+
+    let idx = 0
+
+    function place(me, app, k) {
+        return function() {
+            me.group.add( this.grp );
+
+            this.index = k;
+            me.objs[k] = this.raycastTarget.obj;
+
+            this.grp.position.copy(me.sphere.geo.vertices[isomap[0]]);
+            this.grp.position.multiplyScalar(0.9);
+            // this.grp.position.multiplyScalar(1 + 0.01 * (k/me.works.length));
+            // this.main.opacity = 0;
+            // this.main.updateOpacity();
+
+            this.grp.lookAt(0,0,0);
+
+            this.click = function() {
+                nav.zoom(app, true, this, me);
+            }
+        }
+    }
+
+    // this.works[0] = new Artwork(app, window.url + '/' + app.data.rooms[idx].dir, app.data.rooms[idx].cover, place(this, app, 0));
+
+    for(let i in app.data.rooms[idx].work) {
+        let l = Number(i);
+        let m = l;
+        this.works[m] = new Artwork(app, window.url + '/' + app.data.rooms[idx].dir, app.data.rooms[idx].work[l], place(this, app, m));
+    }
+
+    this.cover = this.works[0];
+}
+
+Artisthomescreen.prototype = Object.create(Artistscreen.prototype);
+Artisthomescreen.prototype.constructor = Artistscreen;
+
+screen.Artisthomescreen = Artisthomescreen;
 screen.Homescreen = Homescreen;
 screen.nav = nav;
 

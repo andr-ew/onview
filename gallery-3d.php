@@ -85,9 +85,7 @@ function room($p, $class) {
 					media($w, 'cover');
 					break;
 				}
-
 			}
-
 			?>
 				<section class="works">
 					<?php

@@ -17,6 +17,8 @@ var { screen } = await import(window.url + '/screen.js');
 var { lookAtExt }  = await import(window.url + '/lookat.js');
 var { css }  = await import(window.url + '/css.js');
 
+var multiple = true;
+
 /*
 
 TODO:
@@ -54,12 +56,16 @@ app.init = function() {
     window.renderer = app.renderer
 
     app.nav = screen.nav;
-    app.nav.homescreen = new screen.Homescreen(app);
-    app.nav.location = app.nav.homescreen;
+
+    if(multiple) {
+        app.nav.homescreen = new screen.Homescreen(app);
+        app.nav.location = app.nav.homescreen;
+    } else {
+        app.nav.homescreen = new screen.Artisthomescreen(app);
+        app.nav.location = app.nav.homescreen;
+    }
 
     app.controls = controls;
-
-
 
     controls.init(app);
     css.init(app);
@@ -79,6 +85,9 @@ function animate() {
 
     TWEEN.update();
 }
+
+window.animate = animate;
+window.app = app;
 
 $(() => {
     app.loading = {
@@ -103,22 +112,26 @@ $(() => {
 
     app.data = { rooms: [] }
 
-    $('.gallery-data .rooms .room').each(function(i) {
+    $('.gallery-data .room').each(function(i) {
         app.data.rooms[i] = {
             name: $(this).attr('data-name'),
             id:  $(this).attr('data-id')
         }
         let room = app.data.rooms[i];
 
-        $(this).find(".cover").each(function() {
-            room.cover = {
-                file: $(this).attr('data-file'),
-                type: $(this).attr('data-type'),
-                title: $(this).attr('data-title'),
-                link:  $(this).attr('data-link')
-            }
-            app.loading.size++;
-        });
+        if($(this).hasClass('single')) {
+            multiple = false;
+        } else {
+            $(this).find(".cover").each(function() {
+                room.cover = {
+                    file: $(this).attr('data-file'),
+                    type: $(this).attr('data-type'),
+                    title: $(this).attr('data-title'),
+                    link:  $(this).attr('data-link')
+                }
+                app.loading.size++;
+            });
+        }
 
         $(this).find(".works").each(function() {
             room.work = [];
