@@ -16,7 +16,7 @@ TODO:
 		<!-- <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=Source+Code+Pro&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet"> -->
         <?php wp_head(); ?>
 	</head>
-	<body data-url="<?php echo get_template_directory_uri(); ?>">
+	<body class="gallery-3d" data-url="<?php echo get_template_directory_uri(); ?>">
         <div id="container"></div>
 <!--		<div id="blocker"></div>-->
         <header>
