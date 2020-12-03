@@ -27,6 +27,11 @@ function post_remove ()      //creating functions post_remove for removing menu 
 
 add_action('admin_menu', 'post_remove');   //adding action for triggering function call
 
+function register_my_menu() {
+  register_nav_menu('main-menu',__( 'Main Menu' ));
+}
+add_action( 'init', 'register_my_menu' );
+
 function enque() {
     // wp_enqueue_style( 'font', 'https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Libre+Baskerville&family=Source+Code+Pro:wght@300&family=Space+Mono:ital@0;1&display=swap');
     // wp_enqueue_style( 'font', 'https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=Source+Code+Pro&family=Space+Mono:ital@0;1&display=swap');
