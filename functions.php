@@ -33,14 +33,22 @@ function register_my_menu() {
 add_action( 'init', 'register_my_menu' );
 
 function enque() {
-    // wp_enqueue_style( 'font', 'https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Libre+Baskerville&family=Source+Code+Pro:wght@300&family=Space+Mono:ital@0;1&display=swap');
-    // wp_enqueue_style( 'font', 'https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=Source+Code+Pro&family=Space+Mono:ital@0;1&display=swap');
-    wp_enqueue_style( 'style', get_stylesheet_uri() );
+    wp_enqueue_style( 'pl-eot', get_template_directory_uri() . '/fonts/Pilowlava-Regular.eot' );
+    wp_enqueue_style( 'pl-woff', get_template_directory_uri() . '/fonts/Pilowlava-Regular.woff' );
+    wp_enqueue_style( 'pl-woff2', get_template_directory_uri() . '/fonts/Pilowlava-Regular.woff2' );
 
-    //wp_enqueue_script( 'jq', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js');
+    wp_enqueue_style( 'cg-eot', get_template_directory_uri() . '/fonts/Compagnon-Italic.eot' );
+    wp_enqueue_style( 'cg-woff', get_template_directory_uri() . '/fonts/Compagnon-Italic.woff' );
+    wp_enqueue_style( 'cg-woff2', get_template_directory_uri() . '/fonts/Compagnon-Italic.woff2' );
+
+    if ( basename(get_page_template()) == 'gallery-3d.php') {
+        wp_enqueue_style( 'gallery-3d', get_template_directory_uri() . '/gallery-3d.css' );
+    } else {
+        wp_enqueue_style( 'style', get_stylesheet_uri() );
+    }
 
     wp_deregister_script('jquery');
-	wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', false, '1.3.2', true);
+	wp_register_script('jquery', get_template_directory_uri() . '/jquery-3.5.1.js', false, '3.5.1', true);
 	wp_enqueue_script('jquery');
 
     wp_enqueue_script( 'tween', get_template_directory_uri() . '/tween.umd.js', array ( 'jquery' ), '0.0.0', true);
@@ -48,6 +56,23 @@ function enque() {
 }
 
 add_action( 'wp_enqueue_scripts', 'enque' );
-//add_action('wp_print_scripts', 'add_theme_js');
+
+function replace_rel($html, $type) {
+    return str_replace("rel='stylesheet'", "rel='preload' as='font'  type='font/" . $type . "' crossorigin='ananymous'", $html);
+}
+
+function slt_filter($html, $handle) {
+    if(strpos($handle, 'woff2') !== false) {
+        return replace_rel($html, 'woff2');
+    } else if(strpos($handle, 'woff') !== false) {
+        return replace_rel($html, 'woff');
+    } else if(strpos($handle, 'eot') !== false) {
+        return replace_rel($html, 'eot');
+    } else {
+        return $html;
+    }
+}
+
+add_filter('style_loader_tag', 'slt_filter', 10, 2);
 
 ?>
