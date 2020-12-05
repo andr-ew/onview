@@ -111,7 +111,7 @@ if($subpages) {
 }
 ?>
 		</section>
-		<section class="meta" data-size="<?php echo $size; ?>"></section>
+		<section class="meta" data-size="<?php echo $size - 1; ?>"></section>
 		<section id="info" class="info">
 			<article class="main" id="info-main">
 				<?php the_field('info'); ?>

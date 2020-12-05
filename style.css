@@ -6,8 +6,53 @@ Version: 0
 Tags:
 */
 
+* {
+    box-sizing: border-box;
+}
+
 body:not(.gallery-3d) {
     background-size: cover;
-    font-family: 'Compagnon', sans-serif;
+    color: #1768EB;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+header .title.main {
+    font-family: 'Pilowlava', sans-serif;
+    font-size: 2rem;
+}
+
+ul.nav.main {
+    font-family: 'Compagnon', serif;
     font-style: italic;
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 2.5rem;
+
+    list-style: none;
+    padding: 0;
+    text-align: center;
+
+    margin: 0;
+    margin-top: 50vh;
+    transform: translate(0, -50%);
+}
+
+
+ul.nav.main li a, ul.nav.main li a:visited {
+    text-decoration: none;
+    color: #1768EB;
+}
+
+ul.nav.main li a:hover {
+    text-decoration: underline;
 }
