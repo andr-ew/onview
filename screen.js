@@ -521,14 +521,14 @@ function Artisthomescreen(app) {
 
     let idx = 0
 
-    function place(me, app, k) {
+    function place(me, app, i) {
         return function() {
             me.group.add( this.grp );
 
-            this.index = k;
-            me.objs[k] = this.raycastTarget.obj;
+            this.index = i;
+            me.objs[i] = this.raycastTarget.obj;
 
-            this.grp.position.copy(me.sphere.geo.vertices[isomap[0]]);
+            this.grp.position.copy(me.sphere.geo.vertices[isomap[i]]);
             this.grp.position.multiplyScalar(0.9);
             // this.grp.position.multiplyScalar(1 + 0.01 * (k/me.works.length));
             // this.main.opacity = 0;
