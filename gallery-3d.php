@@ -11,21 +11,18 @@
 		<div>
 			<h1 class="title" id="title"><?php echo get_the_title(); ?></h1>
 		</div>
-		<div>
-			<!-- <img class="logos" src="<?php echo get_template_directory_uri(); ?>"> -->
-		</div>
+		<div class="title main">
+	    	<h1>SAIC On View</h1>
+	    </div>
 		<div>
 			 <p class="button artist" id="artist-info">about</p>
 		</div>
 	</header>
-        <div class="overlay" id="overlay">
+        <div class="overlay" id="overlay" style="background-image: url('<?php echo get_template_directory_uri() . "/img/bg.svg"; ?>')">
 			<div>
-                <h1><?php echo get_the_title(); ?></h1>
-                <!-- <img class="logos" src="<?php echo get_template_directory_uri(); ?>\"> -->
-                <br>
                 <img id="gif" src="<?php echo get_template_directory_uri(); ?>//img/acs_web_transparent.gif">
                 <p id="instructions">Move your phone and tap the screen to explore the gallery</p>
-				<button class="hidden" id="startButton">ENTER GALLERY</button>
+				<button class="hidden" id="startButton">Enter Gallery</button>
 			</div>
 		</div>
         <div class="arrows">

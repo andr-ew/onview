@@ -96,9 +96,9 @@ $(() => {
         update: function(prog) {
             this.progress += prog;
 
-            console.log("LOADING: " + this.progress + " / " + this.size);
+            console.log("Loading: " + this.progress + " / " + this.size);
 
-            $("#startButton").html("LOADING: " + Math.round(this.progress / this.size * 100) + "%");
+            $("#startButton").html("Loading: " + Math.round(this.progress / this.size * 100) + "%");
 
             //BUG: sometimes this triggers early!
             if(this.progress >= this.size) {
@@ -154,15 +154,16 @@ $(() => {
 
     $("#startButton").removeClass("hidden");
 
-    if(true) {
+    if(app.mobile) {
         app.startButton = document.getElementById( 'startButton' );
 
         app.startButton.addEventListener( 'click', function () {
-            $("#startButton").html("LOADING: 0%");
+            $("#startButton").html("Loading: 0%");
             app.init();
             animate();
         }, false );
     } else {
+        $("#startButton").html("Loading: 0%");
         app.init();
         animate();
     }

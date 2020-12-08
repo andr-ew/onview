@@ -2,9 +2,15 @@
 <body class="home" style="background-image: url('<?php echo get_template_directory_uri() . "/img/bg.svg"; ?>')">
 
 <header>
+    <div>
     <h1></h1>
+    </div>
+    <div>
     <h1></h1>
-    <h1 class="title main">SAIC On View</h1>
+    </div>
+    <div class="title main">
+    <h1>SAIC On View</h1>
+    </div>
 </header>
 <main>
 <?php

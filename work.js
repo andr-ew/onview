@@ -115,7 +115,7 @@ export function Work(app, dir, work_data, onload) {
             }
 
             wrk.onload();
-            
+
             app.loading.update(1);
         });
     } else if(this.type == "YouTube" && this.link) {
@@ -185,7 +185,7 @@ Work.prototype.onload = function() {}
 Work.prototype.selected = function(sel) {}
 Work.prototype.click = function() {}
 
-var color = 0xED3A43; //0x0060c9 // 0xED3A43
+var color = 0x15E87F; //0x10F2A4; //0x1768EB; //0x00FF76;
 
 export function Cover(app, dir, work_data, covertxt, onload) {
     Work.call(this, app, dir, work_data, onload);
@@ -196,7 +196,7 @@ export function Cover(app, dir, work_data, covertxt, onload) {
         this.covertxt = covertxt;
 
         let loader = new app.THREE.FontLoader();
-        let txtmat = new app.THREE.MeshBasicMaterial( {color: 0xED3A43 });
+        let txtmat = new app.THREE.MeshBasicMaterial( {color: color });
 
         loader.load(window.url + '/fonts/Space Mono_Italic.json', function ( font ) {
 
@@ -232,10 +232,10 @@ export function Cover(app, dir, work_data, covertxt, onload) {
             me.grp.add( me.covtxt.obj );
 
             me.buttonbox = {}
-
+// #00FF76
             me.buttonbox.geo = new app.THREE.BoxBufferGeometry( .65, size + 0.01, .001 );
             me.buttonbox.edges = new app.THREE.EdgesGeometry( me.buttonbox.geo );
-            me.buttonbox.mat = new app.THREE.LineBasicMaterial( { color: 0xED3A43, linewidth: 1 } )
+            me.buttonbox.mat = new app.THREE.LineBasicMaterial( { color: color, linewidth: 1 } )
             me.buttonbox.obj = new app.THREE.LineSegments( me.buttonbox.edges, me.buttonbox.mat);
 
             me.buttonbox.mat.transparent = true;
@@ -299,7 +299,7 @@ export function Artwork(app, dir, work_data, onload) {
         if((!app.mobile || me.type == "image") && me.type != "img") {
             me.borderbox = {}
             me.borderbox.geo = new app.THREE.BoxGeometry(me.main.dim.x + 0.03, me.main.dim.y + 0.03, .001 );
-            me.borderbox.mat = new app.THREE.MeshBasicMaterial( { color: 0x0060C9 } )
+            me.borderbox.mat = new app.THREE.MeshBasicMaterial( { color: color } )
             me.borderbox.obj = new app.THREE.Mesh( me.borderbox.geo, me.borderbox.mat);
 
             me.borderbox.mat.transparent = true;

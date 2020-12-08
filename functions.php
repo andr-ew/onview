@@ -41,10 +41,10 @@ function enque() {
     wp_enqueue_style( 'cg-woff', get_template_directory_uri() . '/fonts/Compagnon-Italic.woff' );
     wp_enqueue_style( 'cg-woff2', get_template_directory_uri() . '/fonts/Compagnon-Italic.woff2' );
 
+    wp_enqueue_style( 'style', get_stylesheet_uri() );
+
     if ( basename(get_page_template()) == 'gallery-3d.php') {
         wp_enqueue_style( 'gallery-3d', get_template_directory_uri() . '/gallery-3d.css' );
-    } else {
-        wp_enqueue_style( 'style', get_stylesheet_uri() );
     }
 
     wp_deregister_script('jquery');

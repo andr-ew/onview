@@ -185,6 +185,10 @@ function Screen(app, dir, collapsed, dimmed, scooted, centered, addsphere, light
 
         me.group.lookAt(dir);
 
+        material.color.r = 0.75;
+        material.color.g = 0.75;
+        material.color.b = 0.75;
+
         return {
             obj: sphere,
             geo: geometry,
@@ -270,9 +274,9 @@ Screen.prototype.lighten = function(app, lightness, t, del) {
         .easing(TWEEN.Easing.Exponential.Out)
         .delay(d)
         .to({
-            r: lightness,
-            g: lightness,
-            b: lightness
+            r: 0.75,
+            g: 0.75,
+            b: 0.75
         }, tt)
         .start();
 

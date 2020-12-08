@@ -10,7 +10,7 @@ Tags:
     box-sizing: border-box;
 }
 
-body:not(.gallery-3d) {
+body {
     background-size: cover;
     color: #1768EB;
 }
@@ -26,7 +26,7 @@ header {
     width: 100%;
 }
 
-header .title.main {
+header .title.main h1 {
     font-family: 'Pilowlava', sans-serif;
     font-size: 2rem;
 }
