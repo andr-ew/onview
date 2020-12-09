@@ -105,7 +105,7 @@ a, button, input, select {
 }
 
 .gallery-3d header {
-    position: absolute;
+    /* position: absolute;
     width: 100vw;
     height: 3.5rem;
 
@@ -117,23 +117,20 @@ a, button, input, select {
     justify-content: space-between;
     grid-row-gap: 1rem;
 
-    padding: 1rem;
+    padding: 1rem; */
 }
 
-.gallery-3d header > div > * {
-    margin: 0;
-}
 
 .gallery-3d img.logos {
     width: 10rem;
 }
 
 .gallery-3d h1.title {
-    font-size: 1.35rem;
+    /* font-size: 1.35rem;
     font-family: 'Compagnon', serif;
     font-style: italic;
 
-    transition: all 0.25s;
+    transition: all 0.25s; */
 }
 
 .gallery-3d p.button {
@@ -162,13 +159,6 @@ p.button.artist {
 p.button.artist.visible {
     opacity: 1;
     transform: scale(1);
-}
-
-span.left {
-    font-family: 'Source Code Pro', monospace;
-    display: inline-block;
-    font-weight: 300;
-    transform: rotate(180deg) translate(0, -4px) scale(1.3);
 }
 
 .arrows {
@@ -511,7 +501,7 @@ a.low {
         background-color: #1768EB;
     }
 
-    .gallery-3d header {
+    /* .gallery-3d header {
         position: absolute;
 
         height: 5rem;
@@ -550,7 +540,7 @@ a.low {
         text-align: justify;
 
         margin-bottom: 1rem;
-    }
+    } */
 
     p.button {
         font-size: 3rem;
