@@ -46,7 +46,7 @@ function enque() {
     if ( basename(get_page_template()) == 'gallery-3d.php') {
         wp_enqueue_style( 'gallery-3d', get_template_directory_uri() . '/gallery-3d.css' );
     } else if ( basename(get_page_template()) == 'gallery-2d.php') {
-        wp_enqueue_style( 'gallery-3d', get_template_directory_uri() . '/gallery-2d.css' );
+        wp_enqueue_style( 'gallery-2d', get_template_directory_uri() . '/gallery-2d.css' );
     }
 
     wp_deregister_script('jquery');
