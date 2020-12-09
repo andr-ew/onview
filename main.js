@@ -6,10 +6,10 @@ window.mobileAndTabletCheck = function() {
 
 var app = {}
 
+let bigasync = async function() {
+
 app.mobile = window.mobileAndTabletCheck();
 window.url = $("body").attr("data-url");
-
-let bigasync = async function() {
 
 var THREE = await import(window.url + '/three/build/three.module.js');
 var { controls } = await import(window.url + '/controls.js');
@@ -19,20 +19,12 @@ var { css }  = await import(window.url + '/css.js');
 
 var multiple = true;
 
-/*
-
-TODO:
-
-update loaders & other relevant bits to the new wp queried data format
-
-*/
-
 app.THREE = THREE;
 app.css = css;
 window.css = css;
-//            app.mobile = true;
 
 app.init = function() {
+
 
     app.container = document.getElementById( 'container' );
 
@@ -51,11 +43,17 @@ app.init = function() {
 
     app.scene.background = null;
 
-
     app.renderer.setSize( window.innerWidth, window.innerHeight );
     window.renderer = app.renderer
 
     app.nav = screen.nav;
+
+    controls.init(app);
+    css.init(app);
+
+    app.controls = controls;
+
+    app.container.appendChild( app.renderer.domElement );
 
     if(multiple) {
         app.nav.homescreen = new screen.Homescreen(app);
@@ -65,12 +63,7 @@ app.init = function() {
         app.nav.location = app.nav.homescreen;
     }
 
-    app.controls = controls;
-
-    controls.init(app);
-    css.init(app);
-
-    app.container.appendChild( app.renderer.domElement );
+    console.log("init");
 
 }
 
@@ -89,86 +82,84 @@ function animate() {
 window.animate = animate;
 window.app = app;
 
-$(() => {
-    app.loading = {
-        size: 0,
-        progress: 0,
-        update: function(prog) {
-            this.progress += prog;
+app.loading = {
+    size: 0,
+    progress: 0,
+    update: function(prog) {
+        this.progress += prog;
 
-            console.log("Loading: " + this.progress + " / " + this.size);
+        console.log("Loading: " + this.progress + " / " + this.size);
 
-            $("#startButton").html("Loading: " + Math.round(this.progress / this.size * 100) + "%");
+        $("#startButton").html("Loading: " + Math.round(this.progress / this.size * 100) + "%");
 
-            //BUG: sometimes this triggers early!
-            if(this.progress >= this.size) {
-                var overlay = document.getElementById( 'overlay' );
-                if(overlay) overlay.remove();
+        //BUG: sometimes this triggers early!
+        if(this.progress >= this.size) {
+            var overlay = document.getElementById( 'overlay' );
+            if(overlay) overlay.remove();
 
-                css.youtubeBump();
-            }
+            css.youtubeBump();
         }
     }
+}
 
-    app.data = { rooms: [] }
+app.data = { rooms: [] }
 
-    $('.gallery-data .room').each(function(i) {
-        app.data.rooms[i] = {
-            name: $(this).attr('data-name'),
-            id:  $(this).attr('data-id')
-        }
-        let room = app.data.rooms[i];
+$('.gallery-data .room').each(function(i) {
+    app.data.rooms[i] = {
+        name: $(this).attr('data-name'),
+        id:  $(this).attr('data-id')
+    }
+    let room = app.data.rooms[i];
 
-        if($(this).hasClass('single')) {
-            multiple = false;
-        } else {
-            $(this).find(".cover").each(function() {
-                room.cover = {
-                    file: $(this).attr('data-file'),
-                    type: $(this).attr('data-type'),
-                    title: $(this).attr('data-title'),
-                    link:  $(this).attr('data-link')
-                }
-                app.loading.size++;
-            });
-        }
+    if($(this).hasClass('single')) {
+        multiple = false;
+    } else {
+        $(this).find(".cover").each(function() {
+            room.cover = {
+                file: $(this).attr('data-file'),
+                type: $(this).attr('data-type'),
+                title: $(this).attr('data-title'),
+                link:  $(this).attr('data-link')
+            }
+            app.loading.size++;
+        });
+    }
 
-        $(this).find(".works").each(function() {
-            room.work = [];
+    $(this).find(".works").each(function() {
+        room.work = [];
 
-            $(this).find(".work").each(function(i) {
-                room.work[i] = {
-                    file: $(this).attr('data-file'),
-                    type: $(this).attr('data-type'),
-                    title: $(this).attr('data-title'),
-                    link:  $(this).attr('data-link')
-                }
-                // app.loading.size++;
-            });
+        $(this).find(".work").each(function(i) {
+            room.work[i] = {
+                file: $(this).attr('data-file'),
+                type: $(this).attr('data-type'),
+                title: $(this).attr('data-title'),
+                link:  $(this).attr('data-link')
+            }
+            // app.loading.size++;
         });
     });
+});
 
-    app.loading.size = $(".meta").attr('data-size')
+app.loading.size = $(".meta").attr('data-size')
 
-    console.log(app.data);
+console.log(app.data);
 
-    $("#startButton").removeClass("hidden");
+$("#startButton").removeClass("hidden");
 
-    if(app.mobile) {
-        app.startButton = document.getElementById( 'startButton' );
+if(app.mobile) {
+    app.startButton = document.getElementById( 'startButton' );
 
-        app.startButton.addEventListener( 'click', function () {
-            $("#startButton").html("Loading: 0%");
-            app.init();
-            animate();
-        }, false );
-    } else {
+    app.startButton.addEventListener( 'click', function () {
         $("#startButton").html("Loading: 0%");
         app.init();
         animate();
-    }
-});
+    }, false );
+} else {
+    $("#startButton").html("Loading: 0%");
+    app.init();
+    animate();
+}
 
 }
 
-bigasync();
+$(bigasync);

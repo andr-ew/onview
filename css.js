@@ -1,6 +1,6 @@
 export var css = {}
 
-let init = async function() {
+css.init = async function(app) {
 
 var { CSS3DRenderer, CSS3DObject } = await import(window.url + '/three/examples/jsm/renderers/CSS3DRenderer.js');
 
@@ -76,7 +76,7 @@ css.youtubeBump = function() {
     }, 1000);
 }
 
-css.init = function init(app) {
+// css.init = function init(app) {
 
     camera = app.camera;
 
@@ -109,7 +109,7 @@ css.init = function init(app) {
 //
 //    } );
 
-}
+// }
 
 css.render = function(app) {
     this.renderer.render( app.scene, app.camera );
@@ -124,5 +124,3 @@ css.onWindowResize = function(app) {
 }
 
 }
-
-init();
