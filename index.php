@@ -19,6 +19,7 @@ $menu_items = wp_get_nav_menu_items(get_nav_menu_locations()['main-menu']);
 
 if($menu_items) {
     ?>
+    <nav>
     <ul class="nav main">
     <?php
     foreach($menu_items as $item) {
@@ -29,6 +30,7 @@ if($menu_items) {
     }
     ?>
     </ul>
+    </nav>
     <?php
 }
 ?>

@@ -1,0 +1,81 @@
+main {
+    width: 100%;
+    margin: 0;
+}
+
+main .artworks {
+    width: 100%;
+    overflow: hidden;
+
+    column-count: 2;
+    column-gap: 1em;
+}
+
+main .artworks .artwork {
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+}
+
+main .artworks .artwork img {
+    width: 100%;
+}
+
+nav ul {
+    margin: 0;
+
+    /* font-family: 'Space Mono', monospace; */
+    font-family: 'Compagnon', serif;
+
+    font-size: 1rem;
+    /* font-weight: 400; */
+    /* line-height: 2.5rem; */
+    list-style: none;
+    padding: 0;
+
+    margin-bottom: 1rem;s
+}
+
+nav ul li a, nav ul li a:visited {
+    text-decoration: none;
+    color: #1768EB;
+}
+
+nav ul li a {
+    /* font-style: italic; */
+}
+
+nav ul li a.active, nav ul li a:hover {
+    font-weight: bold;
+    font-style: normal;
+    /* text-decoration: underline; */
+}
+
+body {
+}
+
+/* ------------------------ desktop -------------------------------- */
+@media all and (min-width: 100vh) {
+    main {
+        padding-left: 25vw;
+        padding-right: 12.5vw;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-left: 1.5rem;
+        width: 20vw;
+    }
+
+    main, nav {
+        margin-top: 8rem;
+    }
+
+}
+
+/* ------------------------ mobile -------------------------------- */
+@media all and (max-width: 100vh) {
+
+}

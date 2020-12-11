@@ -13,6 +13,8 @@ Tags:
 body {
     background-size: cover;
     color: #1768EB;
+    background-attachment: fixed;
+    margin: 0;
 }
 
 header {
@@ -40,11 +42,16 @@ header {
 header .title.main h1, header .back {
     font-family: 'Pilowlava', sans-serif;
     font-size: 1.75rem;
+    text-decoration: none;
 }
 
- header .back:hover {
+header .back:visited {
+    color: #1768EB;
+}
+
+header .back:hover {
      cursor: pointer;
- }
+}
 
 header .title.main h1 {
     text-align: right;
@@ -95,7 +102,10 @@ ul.nav.main li a, ul.nav.main li a:visited {
 }
 
 ul.nav.main li a:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    font-weight: bold;
+    font-style: normal;
+    /* text-decoration: underline; */
 }
 
 @media all and (max-width: 100vh) {
