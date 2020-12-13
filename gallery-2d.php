@@ -20,7 +20,7 @@ $children = get_posts(array(
 <body class="gallery-2d" style="background-image: url('<?php echo get_template_directory_uri() . "/img/bg.svg"; ?>')">
 	<header>
 		<div>
-        <?php if($overview) { ?>
+        <?php if(true) { //if($overview) { ?>
 			<a href="<?php echo get_home_url(); ?>" class="button back" id="back"><span class="left">→</span> HOME</a>
         <?php } else { ?>
             <a href="<?php echo get_page_link($parent); ?>" class="button back" id="back"><span class="left">→</span> BACK</a>
@@ -117,5 +117,6 @@ $children = get_posts(array(
                 }
             ?>
         </section>
+        <section class="info"><?php the_field('info'); ?></section>
     </main>
 <?php get_footer(); ?>

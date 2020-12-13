@@ -108,6 +108,42 @@ ul.nav.main li a:hover {
     /* text-decoration: underline; */
 }
 
+main section.info {
+    font-family: 'Compagnon', serif;
+    font-size: 1rem;
+
+    margin-top: 8rem;
+
+    background-color: #f3f3f3;
+
+    padding: 3rem;
+}
+
+.info h1 {
+    /* margin-bottom: 3rem; */
+    font-style: italic;
+    font-weight: 300;
+    font-size: 3rem;
+
+    margin-top: 0;
+}
+
+.info h2 {
+    2rem;
+    /* margin-top: 3rem; */
+}
+
+.info p {
+    font-family: 'Space Mono', monospace;
+}
+
+main {
+    width: 100%;
+    margin: 0;
+    padding-left: 25vw;
+    padding-right: 25vw;
+}
+
 @media all and (max-width: 100vh) {
     header {
         position: absolute;
