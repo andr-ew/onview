@@ -15,6 +15,64 @@ main .artworks .artwork.thumbnail {
     display: inline-block;
     margin: 0 0 1em;
     width: 100%;
+
+    position: relative;
+}
+
+main .artworks .artwork.thumbnail img {
+    border: solid;
+    border-width: 2px;
+    border-color: rgba(0,0,0,0)
+}
+
+main .artworks .artwork.thumbnail:not(.page) img:hover {
+    border-color: #15E87F;
+}
+
+main .artworks .artwork.thumbnail.page:hover {
+    /* background-color:  #15E87F; */
+    border: solid;
+    border-width: 2px;
+    background-color: #15E87F;
+    border-color: #15E87F;
+}
+
+main .artworks .artwork.thumbnail.page .title {
+    opacity: 0;
+    position: absolute;
+    color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Space Mono", monospace;
+    margin: 0;
+    font-size: 1rem;
+
+    /* border: solid;
+    border-width: 2px;
+    border-color: white;
+    padding: 0.5em; */
+}
+
+main .artworks .artwork.thumbnail.page:hover .title {
+    /* height: 100%;
+    width: 100%; */
+    opacity: 1;
+
+
+}
+main .artworks .artwork.thumbnail.page:hover .title::after {
+    content: '→';
+    font-size: 1.25rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.25em;
+    margin-bottom: 0.25em;
+    font-family: "Source Code Pro", monospace;
+}
+
+main .artworks .artwork.thumbnail.page:hover img {
+    opacity: 0;
 }
 
 main .artworks .artwork.thumbnail img {
@@ -88,7 +146,7 @@ nav ul {
     margin-bottom: 1rem;s
 }
 
-nav ul li a, nav ul li a:visited, a.close, a.close:visited {
+nav ul li a, nav ul li a:visited, a.artwork, a.artwork:visited  {
     text-decoration: none;
     color: #1768EB;
 }

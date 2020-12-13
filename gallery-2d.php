@@ -61,7 +61,9 @@ $children = get_posts(array(
 
                     if($page) {
                         ?>
-                        <a class="artwork thumbnail" href="<?php echo get_page_link($page); ?>"><img src="<?php echo $w['image']['sizes']['thumbnail']; ?>"></a>
+                        <a class="artwork thumbnail page" href="<?php echo get_page_link($page); ?>">
+                            <p class="title"><?php echo get_the_title($page); ?></p>
+                            <img src="<?php echo $w['image']['sizes']['thumbnail']; ?>"></a>
                         <?php
                     } else {
                         $slug = strtolower(preg_replace("/(?![.=$'€%-])\p{P}/u", "", preg_replace('/\s+/', '', $title)));
