@@ -116,7 +116,7 @@ nav.artistInfo = function(app, infod) {
 
             $("#artist-info").toggleClass("visible", !infod);
         } else {
-            this.info(app, false, "main");
+            this.info(app, !this.infod, "main");
         }
     } else {
         nav.info(app, !this.infod, "main");
@@ -151,7 +151,7 @@ nav.enter = function(app, artistscreen, enter) {
 
 nav.back = function(app) {
     console.log("back");
-    if(this.location.type == "artistscreen") {
+    if(this.location.type == "artistscreen" && !(this.location.type2 && !this.zoomed && !this.infod)) {
         if(!this.infod) {
             if(!this.zoomed) {
                 if(this.location.type2 == "homescreen") {
