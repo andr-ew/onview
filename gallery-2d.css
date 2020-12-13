@@ -45,13 +45,14 @@ main .artworks .artwork.thumbnail.page .title {
     top: 50%;
     transform: translate(-50%, -50%);
     font-family: "Space Mono", monospace;
+    font-style: italic;
     margin: 0;
     font-size: 1rem;
 
     /* border: solid;
     border-width: 2px;
     border-color: white;
-    padding: 0.5em; */
+    padding: 0.125em 0.5em; */
 }
 
 main .artworks .artwork.thumbnail.page:hover .title {
