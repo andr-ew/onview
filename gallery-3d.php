@@ -1,12 +1,12 @@
 <?php /* Template Name: Gallery 3D */ ?>
 
 <?php get_header(); ?>
-<body class="gallery-3d" data-url="<?php echo get_template_directory_uri(); ?>">
+<body class="gallery-3d" data-url="<?php echo get_template_directory_uri(); ?>" data-home="<?php echo get_home_url(); ?>">
 	<div id="container"></div>
 <!--		<div id="blocker"></div>-->
 	<header>
 		<div>
-			<p class="button back" id="back">info</p>
+			<p class="button back" id="back">home</p>
 		</div>
 		<div>
 			<h1 class="title" id="title"><?php echo get_the_title(); ?></h1>
@@ -15,7 +15,7 @@
 	    	<h1>SAIC On View</h1>
 	    </div>
 		<div>
-			 <p class="button artist" id="artist-info">about</p>
+			 <p class="button artist visible" id="artist-info">info</p>
 		</div>
 	</header>
         <div class="overlay" id="overlay" style="background-image: url('<?php echo get_template_directory_uri() . "/img/bg.svg"; ?>')">

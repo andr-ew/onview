@@ -385,9 +385,9 @@ a.low {
         margin: 5rem auto;
     }
 
-    p.button.back::after {
-        content: " (ESC)";
-    }
+    /* p.button.back::after { */
+        /* content: " (ESC)";
+    } */
 
     p.button.artist::after {
         content: " (Q)";

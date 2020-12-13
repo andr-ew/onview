@@ -10,6 +10,7 @@ let bigasync = async function() {
 
 app.mobile = window.mobileAndTabletCheck();
 window.url = $("body").attr("data-url");
+window.home = $("body").attr("data-home");
 
 var THREE = await import(window.url + '/three/build/three.module.js');
 var { controls } = await import(window.url + '/controls.js');
