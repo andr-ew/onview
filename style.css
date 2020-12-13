@@ -39,13 +39,13 @@ header {
     width: 100%;
 }
 
-header .title.main h1, header .back {
+header .title.main h1, .back {
     font-family: 'Pilowlava', sans-serif;
     font-size: 1.75rem;
     text-decoration: none;
 }
 
-header .back:visited {
+.back:visited {
     color: #1768EB;
 }
 

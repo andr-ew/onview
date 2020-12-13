@@ -55,7 +55,7 @@ function media($w, $class) {
 	<?php
 	} else {
 	?>
-	<article class="<?php echo $class ?>" data-file="<?php echo $w['image']; ?>" data-type="<?php echo $type; ?>" data-title="<?php echo $title; ?>"></article>
+	<article class="<?php echo $class ?>" data-file="<?php echo $w['image']['url']; ?>" data-type="<?php echo $type; ?>" data-title="<?php echo $title; ?>"></article>
 	<?php
 	}
 

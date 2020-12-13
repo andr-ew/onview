@@ -11,14 +11,66 @@ main .artworks {
     column-gap: 1em;
 }
 
-main .artworks .artwork {
+main .artworks .artwork.thumbnail {
     display: inline-block;
     margin: 0 0 1em;
     width: 100%;
 }
 
-main .artworks .artwork img {
+main .artworks .artwork.thumbnail img {
     width: 100%;
+}
+
+main .artworks .artwork.overlay {
+    position: fixed;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+
+    left: 0;
+    top: 0;
+    z-index: 3;
+}
+
+main .artworks .artwork.overlay:target {
+    width: 100vw;
+    height: 100vh;
+}
+
+.artworks .artwork.overlay:target .fullsize {
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 3;
+}
+
+main .artworks .artwork.overlay:target a.close {
+    /* float: left; */
+    margin-left: 20vw;
+    float: left;
+    /* transform: translate(-100%, 0); */
+
+    font-family: 'Source Code Pro', monospace;
+    font-size: 3rem;
+    line-height: 2rem;
+
+}
+
+main .artworks .artwork.overlay header {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+main .artworks .artwork.overlay:target header {
+    width: 100%;
+    height: 3.5rem;
+}
+
+nav {
+    z-index: 4;
 }
 
 nav ul {
@@ -36,7 +88,7 @@ nav ul {
     margin-bottom: 1rem;s
 }
 
-nav ul li a, nav ul li a:visited {
+nav ul li a, nav ul li a:visited, a.close, a.close:visited {
     text-decoration: none;
     color: #1768EB;
 }
@@ -61,6 +113,11 @@ body {
         padding-right: 12.5vw;
     }
 
+    main .artworks .artwork.overlay:target .fullsize {
+        margin-left: 12.5vw;
+        margin-right: 12.5vw;
+    }
+
     nav {
         position: fixed;
         top: 0;
@@ -69,9 +126,14 @@ body {
         width: 20vw;
     }
 
-    main, nav {
-        margin-top: 8rem;
+    main, .artworks .artwork.overlay:target {
+        padding-top: 7rem;
+        padding-bottom: 6rem;
     }
+
+     nav {
+         margin-top: 7rem;
+     }
 
 }
 
