@@ -33,13 +33,16 @@ function register_my_menu() {
 add_action( 'init', 'register_my_menu' );
 
 function enque() {
-    wp_enqueue_style( 'pl-eot', get_template_directory_uri() . '/fonts/Pilowlava-Regular.eot' );
-    wp_enqueue_style( 'pl-woff', get_template_directory_uri() . '/fonts/Pilowlava-Regular.woff' );
-    wp_enqueue_style( 'pl-woff2', get_template_directory_uri() . '/fonts/Pilowlava-Regular.woff2' );
 
-    wp_enqueue_style( 'cg-eot', get_template_directory_uri() . '/fonts/Compagnon-Italic.eot' );
-    wp_enqueue_style( 'cg-woff', get_template_directory_uri() . '/fonts/Compagnon-Italic.woff' );
-    wp_enqueue_style( 'cg-woff2', get_template_directory_uri() . '/fonts/Compagnon-Italic.woff2' );
+    // wp_enqueue_style( 'pl-eot', get_template_directory_uri() . '/fonts/Pilowlava-Regular.eot' );
+    // wp_enqueue_style( 'pl-woff', get_template_directory_uri() . '/fonts/Pilowlava-Regular.woff' );
+    // wp_enqueue_style( 'pl-woff2', get_template_directory_uri() . '/fonts/Pilowlava-Regular.woff2' );
+    //
+    // wp_enqueue_style( 'cg-eot', get_template_directory_uri() . '/fonts/Compagnon-Italic.eot' );
+    // wp_enqueue_style( 'cg-woff', get_template_directory_uri() . '/fonts/Compagnon-Italic.woff' );
+    // wp_enqueue_style( 'cg-woff2', get_template_directory_uri() . '/fonts/Compagnon-Italic.woff2' );
+
+
 
     wp_enqueue_style( 'style', get_stylesheet_uri() );
 

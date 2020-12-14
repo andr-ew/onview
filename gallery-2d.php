@@ -21,9 +21,15 @@ $children = get_posts(array(
 	<header>
 		<div>
         <?php if(true) { //if($overview) { ?>
-			<a href="<?php echo get_home_url(); ?>" class="button back" id="back"><span class="left">→</span> HOME</a>
+            <div>
+    			<a href="<?php echo get_home_url(); ?>" class="button back" id="back">
+                    <img class="arrow left" src="<?php echo get_template_directory_uri() . "/img/arrow-left.svg"  ?>" ><p>HOME</p>
+                </a>
+    		</div>
         <?php } else { ?>
-            <a href="<?php echo get_page_link($parent); ?>" class="button back" id="back"><span class="left">→</span> BACK</a>
+            <div>
+    			<a href="<?php echo get_home_url(); ?>" class="button back" id="back"><img class="arrow left" src="<?php echo get_template_directory_uri() . "/img/arrow-left.svg"  ?>" ><p>HOME</p></a>
+    		</div>
         <?php } ?>
 		</div>
 		<div>
@@ -66,8 +72,8 @@ $children = get_posts(array(
                     if($page) {
                         ?>
                         <a class="artwork thumbnail page" href="<?php echo get_page_link($page); ?>">
-                            <p class="title"><?php echo get_the_title($page); ?></p>
-                            <img src="<?php echo $w['image']['sizes']['thumbnail']; ?>"></a>
+                            <p class="title"><?php echo get_the_title($page); ?><img class="arrow right" src="<?php echo get_template_directory_uri() . "/img/arrow-right-white.svg"  ?>" ></p>
+                            <img class="thumbnail" src="<?php echo $w['image']['sizes']['thumbnail']; ?>"></a>
                         <?php
                     } else {
                         $slug = strtolower(preg_replace("/(?![.=$'€%-])\p{P}/u", "", preg_replace('/\s+/', '', $title)));
@@ -78,7 +84,9 @@ $children = get_posts(array(
                             <!-- <a href="<?php // echo get_page_link($post); ?>" class="close">x</a> -->
                             <header>
                         		<div>
-                        			<a  onclick="window.history.back();" class="button back" id="back"><span class="left">→</span> back</a>
+                        			<a  onclick="window.history.back();" class="button back" id="back">
+                                        <img class="arrow left" src="<?php echo get_template_directory_uri() . "/img/arrow-left.svg"  ?>" ><p>BACK</p>
+                                    </a>
                         		</div>
                         		<div>
                         			<h1 class="title" id="title"><?php echo get_the_title($parent); ?></h1>
@@ -92,7 +100,7 @@ $children = get_posts(array(
                             </div>
                             <p class="title"><?php echo $title; ?></p>
                         </div>
-                        <a class="artwork thumbnail" href="<?php echo get_page_link($post) . '#' . $slug ?>"><img src="<?php echo $w['image']['sizes']['thumbnail']; ?>"></a>
+                        <a class="artwork thumbnail" href="<?php echo get_page_link($post) . '#' . $slug ?>"><img class="thumbnail" src="<?php echo $w['image']['sizes']['thumbnail']; ?>"></a>
                         <?php
                     }
                 }
@@ -117,6 +125,13 @@ $children = get_posts(array(
                 }
             ?>
         </section>
-        <section class="info"><?php the_field('info'); ?></section>
+        <section class="info">
+            <?php the_field('info'); ?>
+            <footer>
+                <p>Copyright SAIC Photo <?php echo date("Y"); ?></p>
+                <p>site by acs <a href="http://andrewcs.info/" target="_blank">andrewcs.info</a></p>
+            </footer>
+        </section>
+
     </main>
 <?php get_footer(); ?>

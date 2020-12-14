@@ -26,8 +26,12 @@
 			</div>
 		</div>
         <div class="arrows">
-            <div id="arrow-left">→</div>
-            <div id="arrow-right">→</div>
+			<div id="arrow-left">
+            	<img  class="arrow left" src="<?php echo get_template_directory_uri() . "/img/arrow-left.svg"  ?>" >
+			</div>
+			<div id="arrow-right">
+            	<img class="arrow right" src="<?php echo get_template_directory_uri() . "/img/arrow-right.svg"  ?>" >
+			</div>
         </div>
         <div class="work-title">
             <p></p>

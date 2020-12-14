@@ -90,7 +90,7 @@ nav.zoom = function(app, zoomed, work, artistscreen) {
             $(".work-title").toggleClass("visible", zoomed);
 
             if(this.location.type2 == "homescreen") {
-                $("#back").html(!zoomed ? "home" : "<span class='left'>→</span> back (esc)");
+                $("#back").html(!zoomed ? "home" : "back (esc)");
             }
 
             this.zoomed = zoomed;
@@ -105,7 +105,7 @@ nav.info = function(app, infod, name) {
 
 
     this.infod = infod
-    $("#back").html(infod ? "<span class='left'>→</span> back (ESC)" : name == "main" ? "home" : "<span class='left'>→</span> back (ESC)");
+    $("#back").html(infod ? "back (ESC)" : name == "main" ? "home" : "back (ESC)");
 }
 
 nav.artistInfo = function(app, infod) {
@@ -138,7 +138,7 @@ nav.inc = function(app, n) {
 
 nav.enter = function(app, artistscreen, enter) {
     this.location = artistscreen;
-    $("#back").html(enter ? "<span class='left'>→</span> back (esc)" : "home"); //←
+    $("#back").html(enter ? "back (esc)" : "home"); //←
     // $("#artist-info").toggleClass("visible", enter);
 
     this.homescreen.dim(app, enter, 1000);

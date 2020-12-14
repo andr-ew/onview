@@ -14,13 +14,13 @@ main .artworks .artwork.thumbnail {
     position: relative;
 }
 
-main .artworks .artwork.thumbnail img {
+main .artworks .artwork.thumbnail img.thumbnail {
     border: solid;
     border-width: 2px;
     border-color: rgba(0,0,0,0)
 }
 
-main .artworks .artwork.thumbnail:not(.page) img:hover {
+main .artworks .artwork.thumbnail:not(.page) img.thumbnail:hover {
     border-color: #15E87F;
 }
 
@@ -57,7 +57,8 @@ main .artworks .artwork.thumbnail.page:hover .title {
 
 
 }
-main .artworks .artwork.thumbnail.page:hover .title::after {
+
+/* main .artworks .artwork.thumbnail.page:hover .title::after {
     content: '→';
     font-size: 1.25rem;
     display: inline-block;
@@ -65,13 +66,19 @@ main .artworks .artwork.thumbnail.page:hover .title::after {
     margin-left: 0.25em;
     margin-bottom: 0.25em;
     font-family: "Source Code Pro", monospace;
+} */
+
+main .artworks .artwork.thumbnail .arrow.right {
+    display: inline-block;
+    width: 1em;
+    margin-left: 0.5em;
 }
 
-main .artworks .artwork.thumbnail.page:hover img {
+main .artworks .artwork.thumbnail.page:hover img.thumbnail {
     opacity: 0;
 }
 
-main .artworks .artwork.thumbnail img {
+main .artworks .artwork.thumbnail img.thumbnail {
     width: 100%;
 }
 
