@@ -376,6 +376,10 @@ a.low {
         content: " (Q)";
     }
 
+    p.button.back.tooltip::after {
+        content: " (ESC)";
+    }
+
     p.button.on, p.button:hover {
         color: #1768EB;
         background-color: white;
@@ -482,7 +486,7 @@ a.low {
     }
 
     .info > article.visible {
-        margin: 15rem 6rem;
+        margin: 8rem 3rem;
     }
 
     p.button.on {
@@ -559,7 +563,7 @@ a.low {
         font-size: 10rem;
     }
 
-    h1.bigtitle.bigtitle.bigtitle.bigtitle {
+    /* h1.bigtitle.bigtitle.bigtitle.bigtitle {
         font-size: 5rem;
         margin-bottom: 3rem;
         font-style: italic;
@@ -587,6 +591,6 @@ a.low {
 
     a.low {
         font-size: 3rem;
-    }
+    } */
 
 }

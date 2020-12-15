@@ -181,8 +181,6 @@ footer a:visited {
         grid-template-rows: 1fr 1fr;
 
         /* padding: 2.5rem; */
-
-        grid-row-gap: 0rem;
     }
 
     header > div:nth-child(1) {
@@ -230,9 +228,11 @@ footer a:visited {
         margin-bottom: 1rem;
     }
 
-    main section.info {
+    section.info {
         font-size: 0.75rem;
+    }
 
+    main section.info {
         margin-top: 8rem;
 
         background-color: #f3f3f3;
