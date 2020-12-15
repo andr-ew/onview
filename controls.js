@@ -32,7 +32,14 @@ controls.init = async function(app) {
     }
 
     if(app.mobile) {
+        console.log("controls mobile");
+        try {
         orientationControls = new DeviceOrientationControls(app.camera);
+    } catch(e) {
+        document.getElementById("body").innerHTML = "<p>loading error: please refresh the page</p>";
+    }
+
+        //document.getElementById("body").innerHTML = "<p>loading error: please refresh the page</p>";
         console.log("oc", orientationControls);
 
         window.oc = orientationControls;
@@ -194,7 +201,13 @@ var canvas = document.getElementsByTagName("canvas");
 
 controls.update = function(app) {
     if(app.mobile) {
-        if(!this.locked) orientationControls.update();
+        if(!this.locked)  {
+            try {
+                orientationControls.update();
+            } catch(e) {
+                document.getElementById("body").innerHTML = "<p>loading error: please refresh the page</p>";
+            }
+        }
     } else {
 //        lat = Math.max( - 85, Math.min( 85, lat ) );
 //        phi = app.THREE.MathUtils.degToRad( 90 - lat );

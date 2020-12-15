@@ -1,7 +1,7 @@
 <?php /* Template Name: Gallery 3D */ ?>
 
 <?php get_header(); ?>
-<body class="gallery-3d" data-url="<?php echo get_template_directory_uri(); ?>" data-home="<?php echo get_home_url(); ?>">
+<body id="body" class="gallery-3d" data-url="<?php echo get_template_directory_uri(); ?>" data-home="<?php echo get_home_url(); ?>">
 	<div id="container"></div>
 <!--		<div id="blocker"></div>-->
 	<header>
