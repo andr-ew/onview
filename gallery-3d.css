@@ -439,13 +439,19 @@ a.low {
         height: 50vh;
     }
 
-    #instructions {
-        font-family: 'Space Mono', monospace;
-        color: #1768EB;
-        font-size: 2rem;
+    #instructions, #overlay > div > button {
+        font-size: 1.5rem;
+        font-family: 'Compagnon', serif;
+        font-style: italic;
 
-        margin: 3rem 6rem;
+        margin: 1rem;
     }
+
+     #overlay > div > button {
+         border: solid;
+         border-width: thin;
+         padding: 0.3em 0.5em 0.5em 0.5em;
+     }
 
     .overlay .logos {
         float: none;

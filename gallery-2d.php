@@ -39,6 +39,7 @@ $children = get_posts(array(
 	    	<h1>SAIC On View</h1>
 	    </div>
 	</header>
+    <main>
     <?php
         if($children) {
             ?>
@@ -59,7 +60,6 @@ $children = get_posts(array(
             <?php
         } else {}
     ?>
-    <main>
         <section class="artworks">
             <?php
                 function artwork($w, $page = false) {

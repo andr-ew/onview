@@ -46,18 +46,17 @@ function enque() {
 
     wp_enqueue_style( 'style', get_stylesheet_uri() );
 
-    if ( basename(get_page_template()) == 'gallery-3d.php') {
-        wp_enqueue_style( 'gallery-3d', get_template_directory_uri() . '/gallery-3d.css' );
-    } else if ( basename(get_page_template()) == 'gallery-2d.php') {
-        wp_enqueue_style( 'gallery-2d', get_template_directory_uri() . '/gallery-2d.css' );
-    }
-
     wp_deregister_script('jquery');
 	wp_register_script('jquery', get_template_directory_uri() . '/jquery-3.5.1.js', false, '3.5.1', true);
 	wp_enqueue_script('jquery');
 
-    wp_enqueue_script( 'tween', get_template_directory_uri() . '/tween.umd.js', array ( 'jquery' ), '0.0.0', true);
-    wp_enqueue_script( 'main', get_template_directory_uri() . '/main.js', array( 'tween', 'jquery' ), '0.0.0', true);
+    if ( basename(get_page_template()) == 'gallery-3d.php') {
+        wp_enqueue_style( 'gallery-3d', get_template_directory_uri() . '/gallery-3d.css' );
+        wp_enqueue_script( 'tween', get_template_directory_uri() . '/tween.umd.js', array ( 'jquery' ), '0.0.0', true);
+        wp_enqueue_script( 'main', get_template_directory_uri() . '/main.js', array( 'tween', 'jquery' ), '0.0.0', true);
+    } else if ( basename(get_page_template()) == 'gallery-2d.php') {
+        wp_enqueue_style( 'gallery-2d', get_template_directory_uri() . '/gallery-2d.css' );
+    }
 }
 
 add_action( 'wp_enqueue_scripts', 'enque' );

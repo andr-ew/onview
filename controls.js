@@ -33,6 +33,7 @@ controls.init = async function(app) {
 
     if(app.mobile) {
         orientationControls = new DeviceOrientationControls(app.camera);
+        console.log("oc", orientationControls);
 
         window.oc = orientationControls;
 
