@@ -44,8 +44,8 @@ export function Work(app, dir, work_data, onload) {
                                                       app.THREE.UVMapping,
                                                       app.THREE.ClampToEdgeWrapping,
                                                       app.THREE.ClampToEdgeWrapping,
-                                                      app.THREE.NearestFilter,
-                                                      app.THREE.NearestMipmapLinearFilter,
+                                                      app.THREE.LinearFilter,
+                                                      app.THREE.LinearMipmapLinearFilter,
                                                       app.THREE.RGBAFormat,
                                                       app.THREE.UnsignedByteType,
                                                       app.renderer.capabilities.getMaxAnisotropy());

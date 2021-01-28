@@ -44,6 +44,7 @@ app.init = function() {
 
     app.scene.background = null;
 
+    app.renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
     app.renderer.setSize( window.innerWidth, window.innerHeight );
     window.renderer = app.renderer
 
