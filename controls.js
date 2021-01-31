@@ -34,10 +34,12 @@ controls.init = async function(app) {
     if(app.mobile) {
         console.log("controls mobile");
         try {
-        orientationControls = new DeviceOrientationControls(app.camera);
-    } catch(e) {
-        document.getElementById("body").innerHTML = "<p>loading error: please refresh the page</p>";
-    }
+            orientationControls = new DeviceOrientationControls(app.camera);
+        } catch(e) {
+            //document.getElementById("body").innerHTML = "<p>loading error: please refresh the page</p>";
+            console.log("orientationControls error");
+            console.log(e);
+        }
 
         //document.getElementById("body").innerHTML = "<p>loading error: please refresh the page</p>";
         console.log("oc", orientationControls);
