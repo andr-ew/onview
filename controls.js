@@ -1,3 +1,6 @@
+import { DeviceOrientationControls } from 'http://192.168.1.2:8888/wp-content/themes/onview/three/examples/jsm/controls/DeviceOrientationControls.js';
+
+
 export var controls = {
     locked: false,
     lookat: {}
@@ -15,9 +18,9 @@ var orientationControls,
 
 var mouse, INTERSECTED, raycaster;
 
-controls.init = async function(app) {
+controls.init = function(app) {
 
-    var { DeviceOrientationControls } = await import(window.url + '/three/examples/jsm/controls/DeviceOrientationControls.js');
+    // var { DeviceOrientationControls } = import('http://192.168.1.2:8888/wp-content/themes/onview/three/examples/jsm/controls/DeviceOrientationControls.js');
 
     this.lookat = new app.THREE.Vector3();
 
@@ -33,13 +36,13 @@ controls.init = async function(app) {
 
     if(app.mobile) {
         console.log("controls mobile");
-        try {
-            orientationControls = new DeviceOrientationControls(app.camera);
-        } catch(e) {
-            //document.getElementById("body").innerHTML = "<p>loading error: please refresh the page</p>";
-            console.log("orientationControls error");
-            console.log(e);
-        }
+        // try {
+        orientationControls = new DeviceOrientationControls(app.camera);
+        // } catch(e) {
+        //     //document.getElementById("body").innerHTML = "<p>loading error: please refresh the page</p>";
+        //     console.log("orientationControls error");
+        //     console.log(e);
+        // }
 
         //document.getElementById("body").innerHTML = "<p>loading error: please refresh the page</p>";
         console.log("oc", orientationControls);

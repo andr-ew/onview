@@ -1,8 +1,11 @@
+import { Cover, Artwork } from "http://192.168.1.2:8888/wp-content/themes/onview/work.js";
+
+
 export var screen = {}
 
-let init = async function() {
+let init = function() {
 
-var { Cover, Artwork } = await import(window.url + "/work.js");
+//var { Cover, Artwork } = await import(window.url + "/work.js");
 
 var isomap = [19,3,5,17,34,21,20,1,7,16,18,31,32,36,22,41,4,0,15,24,35,33,8,6,2,12,23,38,37,30,10,9,14,30,27,25,13,11,28,40,26];
 

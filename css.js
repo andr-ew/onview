@@ -1,8 +1,10 @@
+import { CSS3DRenderer, CSS3DObject } from 'http://192.168.1.2:8888/wp-content/themes/onview/three/examples/jsm/renderers/CSS3DRenderer.js';
+
 export var css = {}
 
-css.init = async function(app) {
+css.init = function(app) {
 
-var { CSS3DRenderer, CSS3DObject } = await import(window.url + '/three/examples/jsm/renderers/CSS3DRenderer.js');
+// var { CSS3DRenderer, CSS3DObject } = await import(window.url + '/three/examples/jsm/renderers/CSS3DRenderer.js');
 
 var camera, scene, renderer;
 var controls;
