@@ -1,4 +1,4 @@
-import { DeviceOrientationControls } from 'http://192.168.1.2:8888/wp-content/themes/onview/three/examples/jsm/controls/DeviceOrientationControls.js';
+import { DeviceOrientationControls } from 'https://saiconview.com/wp-content/themes/onview/three/examples/jsm/controls/DeviceOrientationControls.js';
 
 
 export var controls = {
@@ -20,7 +20,7 @@ var mouse, INTERSECTED, raycaster;
 
 controls.init = function(app) {
 
-    // var { DeviceOrientationControls } = import('http://192.168.1.2:8888/wp-content/themes/onview/three/examples/jsm/controls/DeviceOrientationControls.js');
+    // var { DeviceOrientationControls } = import('https://saiconview.com/wp-content/themes/onview/three/examples/jsm/controls/DeviceOrientationControls.js');
 
     this.lookat = new app.THREE.Vector3();
 

@@ -1,4 +1,4 @@
-import { CSS3DRenderer, CSS3DObject } from 'http://192.168.1.2:8888/wp-content/themes/onview/three/examples/jsm/renderers/CSS3DRenderer.js';
+import { CSS3DRenderer, CSS3DObject } from 'https://saiconview.com/wp-content/themes/onview/three/examples/jsm/renderers/CSS3DRenderer.js';
 
 export var css = {}
 

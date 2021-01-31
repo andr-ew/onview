@@ -1,4 +1,4 @@
-import { Cover, Artwork } from "http://192.168.1.2:8888/wp-content/themes/onview/work.js";
+import { Cover, Artwork } from "https://saiconview.com/wp-content/themes/onview/work.js";
 
 
 export var screen = {}

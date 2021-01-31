@@ -1,8 +1,8 @@
-import * as THREE from 'http://192.168.1.2:8888/wp-content/themes/onview/three/build/three.module.js';
-import { controls } from 'http://192.168.1.2:8888/wp-content/themes/onview/controls.js';
-import { screen } from 'http://192.168.1.2:8888/wp-content/themes/onview/screen.js';
-import { lookAtExt } from 'http://192.168.1.2:8888/wp-content/themes/onview/lookat.js';
-import { css } from 'http://192.168.1.2:8888/wp-content/themes/onview/css.js';
+import * as THREE from 'https://saiconview.com/wp-content/themes/onview/three/build/three.module.js';
+import { controls } from 'https://saiconview.com/wp-content/themes/onview/controls.js';
+import { screen } from 'https://saiconview.com/wp-content/themes/onview/screen.js';
+import { lookAtExt } from 'https://saiconview.com/wp-content/themes/onview/lookat.js';
+import { css } from 'https://saiconview.com/wp-content/themes/onview/css.js';
 
 window.mobileAndTabletCheck = function() {
     let check = false;
@@ -17,14 +17,14 @@ let bigasync = function() {
 app.mobile = window.mobileAndTabletCheck();
 // window.url = $("body").attr("data-url");
 //window.home = $("body").attr("data-home");
-window.url = "http://192.168.1.2:8888/wp-content/themes/onview";
-window.home ="http://192.168.1.2:8888";
+window.url = "https://saiconview.com/wp-content/themes/onview";
+window.home ="https://saiconview.com";
 
-// var THREE = import('http://192.168.1.2:8888/wp-content/themes/onview/three/build/three.module.js');
-// var { controls } = import('http://192.168.1.2:8888/wp-content/themes/onview/controls.js');
-// var { screen } = import('http://192.168.1.2:8888/wp-content/themes/onview/screen.js');
-// var { lookAtExt }  = import('http://192.168.1.2:8888/wp-content/themes/onview/lookat.js');
-// var { css }  = import('http://192.168.1.2:8888/wp-content/themes/onview/css.js');
+// var THREE = import('https://saiconview.com/wp-content/themes/onview/three/build/three.module.js');
+// var { controls } = import('https://saiconview.com/wp-content/themes/onview/controls.js');
+// var { screen } = import('https://saiconview.com/wp-content/themes/onview/screen.js');
+// var { lookAtExt }  = import('https://saiconview.com/wp-content/themes/onview/lookat.js');
+// var { css }  = import('https://saiconview.com/wp-content/themes/onview/css.js');
 
 var multiple = true;
 
